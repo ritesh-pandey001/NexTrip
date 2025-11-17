@@ -1,0 +1,508 @@
+/* Page Specific Styles */
+
+/* Page Headers */
+.page-header {
+    text-align: center;
+    padding: var(--spacing-2xl) 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    margin-bottom: var(--spacing-2xl);
+    border-radius: var(--radius-xl);
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+    font-weight: var(--font-weight-bold);
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Destinations Page */
+.filters-section {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+    align-items: end;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.filter-group label {
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+}
+
+.filter-group select {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    min-width: 150px;
+}
+
+.search-group {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: end;
+}
+
+.search-group input {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    min-width: 250px;
+}
+
+.destinations-grid,
+.tours-grid,
+.hotels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+/* Tours Page */
+.tours-categories {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-lg);
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-xl);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    min-width: 120px;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+}
+
+.category-card:hover,
+.category-card.active {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-color);
+}
+
+.category-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.category-card h3 {
+    font-size: 1rem;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+/* Hotels Page */
+.hotel-search-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    background: var(--bg-card);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--spacing-2xl);
+    border: 1px solid var(--border-primary);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+}
+
+.hotel-search-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.hotel-search-form label {
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+}
+
+.hotel-search-form input,
+.hotel-search-form select {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.search-hotels-btn {
+    grid-column: 1 / -1;
+    justify-self: center;
+    min-width: 200px;
+}
+
+/* About Page */
+.about-hero {
+    text-align: center;
+    padding: var(--spacing-2xl) 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    margin-bottom: var(--spacing-2xl);
+    border-radius: var(--radius-xl);
+}
+
+.about-hero h1 {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-lg);
+    font-weight: var(--font-weight-bold);
+}
+
+.hero-text {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+.about-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-section {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--primary-color);
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-secondary);
+}
+
+.mission-vision {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+    margin: var(--spacing-2xl) 0;
+}
+
+.mission,
+.vision {
+    background: var(--bg-card);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-primary);
+    text-align: center;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+}
+
+.mission i,
+.vision i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-lg);
+}
+
+.mission h3,
+.vision h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
+}
+
+.team-section {
+    margin-top: var(--spacing-2xl);
+}
+
+.team-section h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.team-member {
+    background: var(--bg-card);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-xl);
+    text-align: center;
+    border: 1px solid var(--border-primary);
+    transition: all var(--transition-normal);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-xl);
+}
+
+.team-member img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: var(--spacing-lg);
+    object-fit: cover;
+}
+
+.team-member h4 {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.team-member p {
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Contact Page */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: start;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.contact-item {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: flex-start;
+    background: var(--bg-card);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-primary);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-top: var(--spacing-xs);
+}
+
+.contact-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.contact-item p {
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.contact-form {
+    background: var(--bg-card);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-primary);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-group label {
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    transition: all var(--transition-normal);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* Card Styles for Content */
+.destination-card,
+.tour-card,
+.hotel-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+}
+
+.destination-card:hover,
+.tour-card:hover,
+.hotel-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-xl);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: var(--spacing-lg);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.card-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.card-price {
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.card-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-lg);
+}
+
+.feature-tag {
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--primary-color);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-medium);
+}
+
+/* Responsive Design for Pages */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .filters-section,
+    .tours-categories {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .contact-content,
+    .mission-vision {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .navigation {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .nav-actions {
+        gap: var(--spacing-xs);
+    }
+    
+    .nav-actions .btn span {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .page {
+        padding-top: 80px;
+    }
+    
+    .header-content {
+        padding: var(--spacing-md) 0;
+        min-height: 60px;
+    }
+    
+    .brand-name {
+        font-size: 1.4rem;
+    }
+    
+    .page-header {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .about-hero h1 {
+        font-size: 2rem;
+    }
+}
