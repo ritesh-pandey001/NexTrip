@@ -1,0 +1,935 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Support & Help - NextTrip</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Get help and support for your NextTrip bookings - Customer service, FAQs, and travel assistance" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><span class="logo-mark">✈️</span><span class="logo-text">NextTrip</span></a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="destinations.html" class="nav-link">Destinations</a></li>
+          <li><a href="tours.html" class="nav-link">Tours</a></li>
+          <li><a href="hotels.html" class="nav-link">Hotels</a></li>
+          <li><a href="support.html" class="nav-link active">Support</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <button class="btn ghost" id="signinBtn">Sign In</button>
+        <button class="btn primary" id="getStarted">Get Started</button>
+        <button class="mobile-nav-toggle" aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+
+    <!-- mobile nav -->
+    <div id="mobileNav" class="mobile-nav" hidden>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="tours.html">Tours</a></li>
+        <li><a href="hotels.html">Hotels</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <div class="page-header-content">
+          <h1>🎧 Support & Help Center</h1>
+          <p>We're here to help you have the best travel experience</p>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li><a href="index.html">Home</a></li>
+              <li>Support</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="section container">
+      <div class="section-header">
+        <h2>How Can We Help You?</h2>
+        <p class="section-description">Choose an option below or browse our help topics</p>
+      </div>
+      
+      <div class="quick-actions">
+        <div class="action-card">
+          <div class="action-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <h3>Call Us</h3>
+          <p>Speak directly with our travel experts</p>
+          <a href="tel:+15551234567" class="btn primary">
+            <i class="fas fa-phone"></i> +1 (555) 123-4567
+          </a>
+        </div>
+
+        <div class="action-card">
+          <div class="action-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3>Live Chat</h3>
+          <p>Get instant help from our support team</p>
+          <button class="btn primary" onclick="startLiveChat()">
+            <i class="fas fa-comments"></i> Start Chat
+          </button>
+        </div>
+
+        <div class="action-card">
+          <div class="action-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3>Email Support</h3>
+          <p>Send us your questions anytime</p>
+          <a href="mailto:support@nexttrip.com" class="btn primary">
+            <i class="fas fa-envelope"></i> Email Us
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section gray">
+      <div class="container">
+        <div class="section-header">
+          <h2>Frequently Asked Questions</h2>
+          <p class="section-description">Find quick answers to common questions</p>
+        </div>
+
+        <div class="faq-search">
+          <input type="text" id="faqSearch" placeholder="Search FAQs..." aria-label="Search FAQs">
+          <i class="fas fa-search search-icon"></i>
+        </div>
+
+        <div class="faq-categories">
+          <button class="faq-tab active" data-category="all">All</button>
+          <button class="faq-tab" data-category="booking">Booking</button>
+          <button class="faq-tab" data-category="payment">Payment</button>
+          <button class="faq-tab" data-category="travel">Travel</button>
+          <button class="faq-tab" data-category="cancellation">Cancellation</button>
+        </div>
+
+        <div id="faqList" class="faq-list">
+          <!-- FAQs will be rendered here by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="section container">
+      <div class="section-header">
+        <h2>Contact Us</h2>
+        <p class="section-description">Can't find what you're looking for? Send us a message</p>
+      </div>
+
+      <div class="contact-container">
+        <div class="contact-form-wrapper">
+          <form id="contactForm" class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="firstName" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a topic</option>
+                <option value="booking">Booking Assistance</option>
+                <option value="payment">Payment Issues</option>
+                <option value="cancellation">Cancellation/Refund</option>
+                <option value="travel">Travel Information</option>
+                <option value="technical">Technical Support</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="bookingRef">Booking Reference (Optional)</label>
+              <input type="text" id="bookingRef" name="bookingRef" placeholder="e.g., NXT123456">
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" rows="6" required placeholder="Please describe your question or issue in detail..."></textarea>
+            </div>
+
+            <button type="submit" class="btn primary">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+
+        <div class="contact-info">
+          <h3>Other Ways to Reach Us</h3>
+          
+          <div class="contact-method">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div>
+              <h4>Business Hours</h4>
+              <p>Monday - Friday: 8:00 AM - 8:00 PM<br>
+                 Saturday - Sunday: 9:00 AM - 6:00 PM<br>
+                 <em>(EST, UTC-5)</em></p>
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <h4>Office Location</h4>
+              <address>
+                123 Travel Street<br>
+                Adventure City, AC 12345<br>
+                United States
+              </address>
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <div class="contact-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <div>
+              <h4>International</h4>
+              <p>For international customers:<br>
+                 <a href="tel:+12345678900">+1 (234) 567-8900</a><br>
+                 <em>Standard international rates apply</em></p>
+            </div>
+          </div>
+
+          <div class="emergency-contact">
+            <h4><i class="fas fa-exclamation-triangle"></i> Emergency Travel Assistance</h4>
+            <p>24/7 emergency support while traveling:</p>
+            <a href="tel:+15551234999" class="emergency-phone">+1 (555) 123-4999</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Help Topics -->
+    <section class="section gray">
+      <div class="container">
+        <div class="section-header">
+          <h2>Popular Help Topics</h2>
+          <p class="section-description">Browse our most helpful resources</p>
+        </div>
+
+        <div class="help-topics-grid">
+          <a href="#" class="help-topic-card">
+            <div class="topic-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <h3>How to Modify Bookings</h3>
+            <p>Learn how to change dates, add travelers, or upgrade your reservation</p>
+            <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+          </a>
+
+          <a href="#" class="help-topic-card">
+            <div class="topic-icon">
+              <i class="fas fa-credit-card"></i>
+            </div>
+            <h3>Payment & Billing</h3>
+            <p>Understanding charges, payment methods, and billing inquiries</p>
+            <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+          </a>
+
+          <a href="#" class="help-topic-card">
+            <div class="topic-icon">
+              <i class="fas fa-plane"></i>
+            </div>
+            <h3>Travel Documents</h3>
+            <p>Passport, visa, and document requirements for your destination</p>
+            <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+          </a>
+
+          <a href="#" class="help-topic-card">
+            <div class="topic-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Travel Insurance</h3>
+            <p>Protect your trip with comprehensive travel insurance options</p>
+            <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+          </a>
+
+          <a href="#" class="help-topic-card">
+            <div class="topic-icon">
+              <i class="fas fa-luggage-cart"></i>
+            </div>
+            <h3>Packing Guidelines</h3>
+            <p>What to pack and airline baggage restrictions</p>
+            <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+          </a>
+
+          <a href="#" class="help-topic-card">
+            <div class="topic-icon">
+              <i class="fas fa-times-circle"></i>
+            </div>
+            <h3>Cancellation Policy</h3>
+            <p>Understand our cancellation terms and refund policies</p>
+            <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="support" class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="logo" href="index.html"><span class="logo-mark">✈️</span><span>NextTrip</span></a>
+        <p>Your trusted partner for extraordinary travel experiences worldwide.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Destinations</h4>
+        <ul>
+          <li><a href="destinations.html">Europe</a></li>
+          <li><a href="destinations.html">Asia</a></li>
+          <li><a href="destinations.html">Americas</a></li>
+          <li><a href="destinations.html">Africa</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="tours.html">Flight Booking</a></li>
+          <li><a href="hotels.html">Hotel Reservations</a></li>
+          <li><a href="tours.html">Car Rentals</a></li>
+          <li><a href="support.html">Travel Insurance</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <address>
+          123 Travel Street<br/>
+          Adventure City, AC 12345<br/>
+          <a href="tel:+15551234567">+1 (555) 123-4567</a><br/>
+          <a href="mailto:hello@nexttrip.com">hello@nexttrip.com</a>
+        </address>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-content">
+        <small>&copy; 2025 NextTrip. All rights reserved.</small>
+        <div class="footer-team">
+          <p>Crafted with ❤️ by: Ritesh Pandey, Akhil Pandey, Mohd Kayes Ansari, Omji</p>
+        </div>
+        <div class="footer-links">
+          <a href="support.html">Privacy Policy</a>
+          <a href="support.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      color: white;
+      padding: 4rem 0 2rem;
+      margin-top: 0;
+    }
+    
+    .page-header-content {
+      text-align: center;
+    }
+    
+    .page-header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .page-header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+    
+    .breadcrumb {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 0.9rem;
+    }
+    
+    .breadcrumb li::after {
+      content: ' / ';
+      margin-left: 0.5rem;
+      opacity: 0.7;
+    }
+    
+    .breadcrumb li:last-child::after {
+      content: none;
+    }
+    
+    .breadcrumb a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      color: white;
+    }
+
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .action-card {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(14,165,233,0.1);
+    }
+
+    .action-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(14,165,233,0.12);
+    }
+
+    .action-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: white;
+      font-size: 1.8rem;
+    }
+
+    .action-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .action-card p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .faq-search {
+      position: relative;
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+
+    .faq-search input {
+      width: 100%;
+      padding: 1rem 1rem 1rem 3rem;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      background: var(--background);
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .faq-search input:focus {
+      border-color: var(--accent-1);
+      outline: none;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+    }
+
+    .faq-categories {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .faq-tab {
+      padding: 0.75rem 1.5rem;
+      border: 2px solid var(--border);
+      border-radius: 25px;
+      background: var(--background);
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .faq-tab.active,
+    .faq-tab:hover {
+      background: var(--accent-1);
+      color: white;
+      border-color: var(--accent-1);
+    }
+
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--card);
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(14,165,233,0.1);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 1.5rem;
+      background: none;
+      border: none;
+      text-align: left;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background: rgba(14,165,233,0.05);
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem 1.5rem;
+      color: var(--muted);
+      line-height: 1.6;
+      display: none;
+    }
+
+    .faq-answer.active {
+      display: block;
+    }
+
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    .contact-form-wrapper {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-form .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-form label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      background: var(--background);
+      color: var(--text);
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-color: var(--accent-1);
+      outline: none;
+    }
+
+    .contact-info {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      height: fit-content;
+    }
+
+    .contact-info h3 {
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-method {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .contact-method h4 {
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-method p,
+    .contact-method address {
+      color: var(--muted);
+      font-style: normal;
+      line-height: 1.5;
+    }
+
+    .emergency-contact {
+      background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .emergency-phone {
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+
+    .help-topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .help-topic-card {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(14,165,233,0.1);
+      display: block;
+    }
+
+    .help-topic-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(14,165,233,0.12);
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .topic-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .help-topic-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .help-topic-card p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .read-more {
+      color: var(--accent-1);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      
+      .page-header {
+        padding: 3rem 0 1.5rem;
+      }
+
+      .quick-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .faq-categories {
+        justify-content: center;
+      }
+
+      .faq-tab {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .contact-form .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .help-topics-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <script src="script.js"></script>
+  
+  <script>
+    // Additional functionality for support page
+    document.addEventListener('DOMContentLoaded', () => {
+      // FAQ data
+      const faqs = [
+        {
+          category: 'booking',
+          question: 'How do I book a trip on NextTrip?',
+          answer: 'Booking with NextTrip is simple! Browse our destinations, select your preferred tour or hotel, choose your dates, and follow the checkout process. You can also call our customer service team for assistance.'
+        },
+        {
+          category: 'booking',
+          question: 'Can I modify my booking after confirmation?',
+          answer: 'Yes, most bookings can be modified up to 48 hours before your travel date. Changes may be subject to availability and additional fees. Contact our support team or log into your account to make changes.'
+        },
+        {
+          category: 'payment',
+          question: 'What payment methods do you accept?',
+          answer: 'We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers. Payment is secured with 256-bit SSL encryption for your protection.'
+        },
+        {
+          category: 'payment',
+          question: 'When will I be charged for my booking?',
+          answer: 'Payment is processed immediately upon booking confirmation. For certain packages, we may require a deposit with the balance due closer to your travel date.'
+        },
+        {
+          category: 'cancellation',
+          question: 'What is your cancellation policy?',
+          answer: 'Cancellation policies vary by package. Most bookings can be cancelled up to 24-48 hours before travel for a full refund. Premium packages may have different terms. Check your booking confirmation for specific details.'
+        },
+        {
+          category: 'travel',
+          question: 'Do I need travel insurance?',
+          answer: 'While not mandatory, we highly recommend travel insurance to protect against unexpected events like illness, flight delays, or trip cancellations. We offer comprehensive travel insurance options during checkout.'
+        },
+        {
+          category: 'travel',
+          question: 'What documents do I need for international travel?',
+          answer: 'For international travel, you typically need a valid passport and may require a visa depending on your destination. Check with the embassy or consulate of your destination country for specific requirements.'
+        },
+        {
+          category: 'booking',
+          question: 'How do I check in for my tour?',
+          answer: 'Check-in instructions are provided in your booking confirmation email. For most tours, you\'ll meet at a designated location 15-30 minutes before departure. Our local guides will be there to assist you.'
+        }
+      ];
+
+      const faqList = document.getElementById('faqList');
+      const faqSearch = document.getElementById('faqSearch');
+      const faqTabs = document.querySelectorAll('.faq-tab');
+
+      // Render FAQs
+      function renderFAQs(faqsToShow) {
+        faqList.innerHTML = '';
+        faqsToShow.forEach((faq, index) => {
+          const faqElement = document.createElement('div');
+          faqElement.className = 'faq-item';
+          faqElement.innerHTML = `
+            <button class="faq-question" onclick="toggleFAQ(${index})">
+              ${faq.question}
+              <i class="fas fa-plus faq-icon"></i>
+            </button>
+            <div class="faq-answer" id="faq-answer-${index}">
+              ${faq.answer}
+            </div>
+          `;
+          faqList.appendChild(faqElement);
+        });
+      }
+
+      // Initial render
+      renderFAQs(faqs);
+
+      // FAQ search functionality
+      faqSearch && faqSearch.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        const filtered = faqs.filter(faq => 
+          faq.question.toLowerCase().includes(query) ||
+          faq.answer.toLowerCase().includes(query)
+        );
+        renderFAQs(filtered);
+      });
+
+      // FAQ category filters
+      faqTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          faqTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          
+          const category = tab.dataset.category;
+          const filtered = category === 'all' ? faqs : faqs.filter(f => f.category === category);
+          renderFAQs(filtered);
+        });
+      });
+
+      // Contact form submission
+      const contactForm = document.getElementById('contactForm');
+      contactForm && contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        const firstName = formData.get('firstName');
+        const lastName = formData.get('lastName');
+        const email = formData.get('email');
+        const subject = formData.get('subject');
+        const message = formData.get('message');
+        
+        // Show success message
+        const successMessage = document.createElement('div');
+        successMessage.innerHTML = `
+          <div style="background: #10b981; color: white; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center;">
+            <i class="fas fa-check-circle"></i> 
+            Thank you ${firstName}! Your message has been sent successfully. We'll get back to you within 24 hours.
+          </div>
+        `;
+        contactForm.parentNode.insertBefore(successMessage, contactForm);
+        
+        // Reset form
+        contactForm.reset();
+        
+        // Remove success message after 5 seconds
+        setTimeout(() => {
+          if (successMessage.parentNode) {
+            successMessage.parentNode.removeChild(successMessage);
+          }
+        }, 5000);
+      });
+    });
+
+    // Global functions for FAQ functionality
+    function toggleFAQ(index) {
+      const faqItem = document.querySelectorAll('.faq-item')[index];
+      const faqAnswer = document.getElementById(`faq-answer-${index}`);
+      
+      // Close other open FAQs
+      document.querySelectorAll('.faq-item').forEach(item => {
+        if (item !== faqItem) {
+          item.classList.remove('active');
+          item.querySelector('.faq-answer').classList.remove('active');
+        }
+      });
+      
+      // Toggle current FAQ
+      faqItem.classList.toggle('active');
+      faqAnswer.classList.toggle('active');
+    }
+
+    function startLiveChat() {
+      alert('Live chat is starting...\n\nIn a real application, this would connect you to our customer support team through a chat widget.');
+    }
+  </script>
+</body>
+</html>

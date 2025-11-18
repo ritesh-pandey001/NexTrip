@@ -1,1141 +1,489 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NextTrip - Premium Travel Experience | Your Journey Starts Here</title>
-    <meta name="description" content="Discover the world's most beautiful destinations with NextTrip. Premium travel planning, luxury accommodations, and unforgettable experiences await.">
-    <meta name="keywords" content="travel, luxury travel, vacation planning, hotels, flights, destinations, tours">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
-    
-    <!-- External Libraries -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@11/swiper-bundle.min.css">
-    
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="css/modern-design.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/animations.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NextTrip — Premium Travel Experience</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Premium travel experience - NextTrip redesign (HTML/CSS/JS)" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-container">
-            <div class="plane-animation">
-                <i class="fas fa-paper-plane"></i>
-            </div>
-            <div class="loading-text">
-                <h2>NextTrip</h2>
-                <p>Preparing your journey...</p>
-            </div>
-            <div class="loading-bar">
-                <div class="loading-progress"></div>
-            </div>
-        </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><span class="logo-mark">✈️</span><span class="logo-text">NextTrip</span></a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="destinations.html" class="nav-link">Destinations</a></li>
+          <li><a href="tours.html" class="nav-link">Tours</a></li>
+          <li><a href="hotels.html" class="nav-link">Hotels</a></li>
+          <li><a href="support.html" class="nav-link">Support</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <button class="btn ghost" id="signinBtn">Sign In</button>
+        <button class="btn primary" id="getStarted">Get Started</button>
+        <button class="mobile-nav-toggle" aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle menu">☰</button>
+      </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <!-- Logo -->
-            <div class="nav-logo">
-                <div class="logo-icon">
-                    <i class="fas fa-paper-plane"></i>
-                </div>
-                <div class="logo-text">
-                    <span class="logo-name">NextTrip</span>
-                    <span class="logo-tagline">Premium Travel</span>
-                </div>
-            </div>
+    <!-- mobile nav -->
+    <div id="mobileNav" class="mobile-nav" hidden>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="tours.html">Tours</a></li>
+        <li><a href="hotels.html">Hotels</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </div>
+  </header>
 
-            <!-- Navigation Menu -->
-            <ul class="nav-menu" id="navMenu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link active">
-                        <i class="fas fa-home"></i>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#destinations" class="nav-link">
-                        <i class="fas fa-globe-americas"></i>
-                        <span>Destinations</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#tours" class="nav-link">
-                        <i class="fas fa-camera-retro"></i>
-                        <span>Tours</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#hotels" class="nav-link">
-                        <i class="fas fa-hotel"></i>
-                        <span>Hotels</span>
-                    </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-ellipsis-h"></i>
-                        <span>More</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#about"><i class="fas fa-users"></i>About Us</a></li>
-                        <li><a href="#services"><i class="fas fa-concierge-bell"></i>Services</a></li>
-                        <li><a href="#blog"><i class="fas fa-blog"></i>Travel Blog</a></li>
-                        <li><a href="#contact"><i class="fas fa-envelope"></i>Contact</a></li>
-                    </ul>
-                </li>
-            </ul>
-
-            <!-- Navigation Actions -->
-            <div class="nav-actions">
-                <button class="nav-btn search-btn" id="searchBtn">
-                    <i class="fas fa-search"></i>
-                </button>
-                <button class="nav-btn notification-btn" id="notificationBtn">
-                    <i class="fas fa-bell"></i>
-                    <span class="notification-badge">3</span>
-                </button>
-                <button class="nav-btn theme-btn" id="themeBtn">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button class="btn btn-outline" id="signInBtn">
-                    <i class="fas fa-sign-in-alt"></i>
-                    <span>Sign In</span>
-                </button>
-                <button class="btn btn-primary" id="getStartedBtn">
-                    <i class="fas fa-rocket"></i>
-                    <span>Get Started</span>
-                </button>
-            </div>
-
-            <!-- Mobile Menu Toggle -->
-            <div class="mobile-menu-toggle" id="mobileMenuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-
-        <!-- Search Overlay -->
-        <div class="search-overlay" id="searchOverlay">
-            <div class="search-container">
-                <div class="search-header">
-                    <h3>Where would you like to go?</h3>
-                    <button class="search-close" id="searchClose">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <div class="search-form">
-                    <input type="text" placeholder="Search destinations, hotels, activities..." class="search-input">
-                    <div class="search-suggestions">
-                        <div class="suggestion-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <span class="suggestion-name">Paris, France</span>
-                                <span class="suggestion-type">City</span>
-                            </div>
-                        </div>
-                        <div class="suggestion-item">
-                            <i class="fas fa-mountain"></i>
-                            <div>
-                                <span class="suggestion-name">Swiss Alps</span>
-                                <span class="suggestion-type">Mountain</span>
-                            </div>
-                        </div>
-                        <div class="suggestion-item">
-                            <i class="fas fa-umbrella-beach"></i>
-                            <div>
-                                <span class="suggestion-name">Maldives</span>
-                                <span class="suggestion-type">Beach</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-background">
-            <div class="hero-video">
-                <video autoplay muted loop>
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-turquoise-lake-surrounded-by-mountains-28471-large.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="hero-overlay"></div>
-        </div>
-        
+  <main id="home">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-background"></div>
+      <div class="container hero-grid">
         <div class="hero-content">
-            <div class="container">
-                <div class="hero-text" data-aos="fade-up" data-aos-delay="200">
-                    <div class="hero-badge">
-                        <i class="fas fa-star"></i>
-                        <span>Trusted by 100,000+ travelers worldwide</span>
-                    </div>
-                    <h1 class="hero-title">
-                        Your <span class="gradient-text">Dream Journey</span><br>
-                        Starts Here
-                    </h1>
-                    <p class="hero-description">
-                        Discover extraordinary destinations, luxury accommodations, and unforgettable experiences. 
-                        Let us turn your travel dreams into reality with our premium travel planning services.
-                    </p>
-                    <div class="hero-actions">
-                        <button class="btn btn-primary btn-large">
-                            <i class="fas fa-rocket"></i>
-                            <span>Start Your Adventure</span>
-                        </button>
-                        <button class="btn btn-outline btn-large">
-                            <i class="fas fa-play"></i>
-                            <span>Watch Our Story</span>
-                        </button>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">150+</span>
-                            <span class="stat-label">Destinations</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">50K+</span>
-                            <span class="stat-label">Happy Travelers</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">98%</span>
-                            <span class="stat-label">Satisfaction Rate</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Booking Widget -->
-                <div class="hero-booking-widget" data-aos="fade-up" data-aos-delay="400">
-                    <div class="booking-tabs">
-                        <button class="tab-btn active" data-tab="flights">
-                            <i class="fas fa-plane"></i>
-                            <span>Flights</span>
-                        </button>
-                        <button class="tab-btn" data-tab="hotels">
-                            <i class="fas fa-hotel"></i>
-                            <span>Hotels</span>
-                        </button>
-                        <button class="tab-btn" data-tab="cars">
-                            <i class="fas fa-car"></i>
-                            <span>Car Rental</span>
-                        </button>
-                        <button class="tab-btn" data-tab="packages">
-                            <i class="fas fa-gift"></i>
-                            <span>Packages</span>
-                        </button>
-                    </div>
-                    
-                    <form class="booking-form">
-                        <!-- Flight Booking Form -->
-                        <div class="form-content active" id="flights">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="from">From</label>
-                                    <div class="input-group">
-                                        <i class="fas fa-plane-departure"></i>
-                                        <input type="text" id="from" placeholder="Departure city">
-                                    </div>
-                                </div>
-                                <button class="swap-btn" type="button">
-                                    <i class="fas fa-exchange-alt"></i>
-                                </button>
-                                <div class="form-group">
-                                    <label for="to">To</label>
-                                    <div class="input-group">
-                                        <i class="fas fa-plane-arrival"></i>
-                                        <input type="text" id="to" placeholder="Destination city">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="departure">Departure</label>
-                                    <div class="input-group">
-                                        <i class="fas fa-calendar"></i>
-                                        <input type="date" id="departure">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="return">Return</label>
-                                    <div class="input-group">
-                                        <i class="fas fa-calendar"></i>
-                                        <input type="date" id="return">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="passengers">Passengers</label>
-                                    <div class="input-group">
-                                        <i class="fas fa-user"></i>
-                                        <select id="passengers">
-                                            <option>1 Adult</option>
-                                            <option>2 Adults</option>
-                                            <option>3+ Adults</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-large full-width">
-                                <i class="fas fa-search"></i>
-                                <span>Search Flights</span>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+          <span class="badge">✨ Trusted by 100,000+ travelers worldwide</span>
+          <h1>Your <span class="gradient-text">Dream Journey</span><br>Starts Here</h1>
+          <p>Discover extraordinary destinations, luxury accommodations, and unforgettable experiences. Let us turn your travel dreams into reality with our premium travel planning services.</p>
+          <div class="ctas">
+            <button class="btn primary" id="startAdventure">
+              <i class="fas fa-rocket"></i>
+              Start Your Adventure
+            </button>
+            <button class="btn outline" id="watchStory">
+              <i class="fas fa-play"></i>
+              Watch Our Story
+            </button>
+          </div>
+
+          <!-- Quick stats -->
+          <div class="stats">
+            <div class="stat-item">
+              <strong class="stat-number">150+</strong>
+              <span class="stat-label">Destinations</span>
             </div>
+            <div class="stat-item">
+              <strong class="stat-number">50K+</strong>
+              <span class="stat-label">Happy Travelers</span>
+            </div>
+            <div class="stat-item">
+              <strong class="stat-number">98%</strong>
+              <span class="stat-label">Satisfaction Rate</span>
+            </div>
+          </div>
         </div>
 
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator">
-            <div class="scroll-mouse">
-                <div class="scroll-wheel"></div>
+        <!-- Search card -->
+        <aside class="search-card" aria-label="Search flights and hotels">
+          <div class="tabs" role="tablist" aria-label="Search tabs">
+            <button class="tab active" data-target="flights" role="tab" aria-selected="true">
+              <i class="fas fa-plane"></i>
+              Flights
+            </button>
+            <button class="tab" data-target="hotels" role="tab">
+              <i class="fas fa-hotel"></i>
+              Hotels
+            </button>
+            <button class="tab" data-target="cars" role="tab">
+              <i class="fas fa-car"></i>
+              Car Rental
+            </button>
+            <button class="tab" data-target="packages" role="tab">
+              <i class="fas fa-gift"></i>
+              Packages
+            </button>
+          </div>
+
+          <form id="searchForm" class="search-form" novalidate>
+            <div class="row">
+              <label>
+                From
+                <div class="input-group">
+                  <i class="fas fa-plane-departure"></i>
+                  <input type="text" name="from" placeholder="Departure city" required />
+                </div>
+              </label>
+              <button class="swap-btn" type="button" aria-label="Swap departure and destination">
+                <i class="fas fa-exchange-alt"></i>
+              </button>
+              <label>
+                To
+                <div class="input-group">
+                  <i class="fas fa-plane-arrival"></i>
+                  <input type="text" name="to" placeholder="Destination city" required />
+                </div>
+              </label>
             </div>
-            <span>Scroll to explore</span>
+
+            <div class="row">
+              <label>
+                Departure
+                <div class="input-group">
+                  <i class="fas fa-calendar"></i>
+                  <input type="date" name="departure" required />
+                </div>
+              </label>
+              <label>
+                Return
+                <div class="input-group">
+                  <i class="fas fa-calendar"></i>
+                  <input type="date" name="return" />
+                </div>
+              </label>
+            </div>
+
+            <div class="row">
+              <label>
+                Passengers
+                <div class="input-group">
+                  <i class="fas fa-users"></i>
+                  <select name="passengers">
+                    <option value="1">1 Adult</option>
+                    <option value="2">2 Adults</option>
+                    <option value="3">3 Adults</option>
+                    <option value="4">4+ Adults</option>
+                  </select>
+                </div>
+              </label>
+              <button class="btn primary full" type="submit">
+                <i class="fas fa-search"></i>
+                Search Flights
+              </button>
+            </div>
+          </form>
+        </aside>
+      </div>
+      
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
         </div>
+        <span>Scroll to explore</span>
+      </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <div class="section-badge">
-                    <i class="fas fa-star"></i>
-                    <span>Why Choose NextTrip</span>
-                </div>
-                <h2 class="section-title">Experience the Difference</h2>
-                <p class="section-description">
-                    We provide world-class travel services with attention to every detail, 
-                    ensuring your journey is smooth, memorable, and extraordinary.
-                </p>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="feature-title">Safe & Secure</h3>
-                    <p class="feature-description">
-                        Your safety is our priority. We partner with trusted providers and ensure 
-                        secure transactions with 256-bit SSL encryption.
-                    </p>
-                    <div class="feature-metrics">
-                        <span class="metric">100% Secure</span>
-                        <span class="metric">24/7 Support</span>
-                    </div>
-                </div>
-
-                <div class="feature-card featured" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-badge">Most Popular</div>
-                    <div class="feature-icon">
-                        <i class="fas fa-gem"></i>
-                    </div>
-                    <h3 class="feature-title">Premium Experiences</h3>
-                    <p class="feature-description">
-                        Access exclusive destinations, luxury accommodations, and VIP services 
-                        that create unforgettable memories.
-                    </p>
-                    <div class="feature-metrics">
-                        <span class="metric">5-Star Quality</span>
-                        <span class="metric">Exclusive Access</span>
-                    </div>
-                </div>
-
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="feature-icon">
-                        <i class="fas fa-globe-americas"></i>
-                    </div>
-                    <h3 class="feature-title">Global Network</h3>
-                    <p class="feature-description">
-                        Explore 150+ destinations worldwide with our extensive network of 
-                        local partners and expert guides.
-                    </p>
-                    <div class="feature-metrics">
-                        <span class="metric">150+ Destinations</span>
-                        <span class="metric">Local Experts</span>
-                    </div>
-                </div>
-
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="feature-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3 class="feature-title">24/7 Support</h3>
-                    <p class="feature-description">
-                        Our dedicated support team is available around the clock to assist you 
-                        before, during, and after your journey.
-                    </p>
-                </div>
-
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="feature-icon">
-                        <i class="fas fa-dollar-sign"></i>
-                    </div>
-                    <h3 class="feature-title">Best Price Guarantee</h3>
-                    <p class="feature-description">
-                        We guarantee the best prices on all bookings. Find a lower price elsewhere? 
-                        We'll match it and give you an additional 10% off.
-                    </p>
-                </div>
-
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3 class="feature-title">Mobile App</h3>
-                    <p class="feature-description">
-                        Access your bookings, get real-time updates, and discover new experiences 
-                        with our award-winning mobile app.
-                    </p>
-                </div>
-            </div>
+    <section class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Choose NextTrip</h2>
+          <p class="section-description">Experience the difference with our premium travel services</p>
         </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Safe & Secure</h3>
+            <p>Your safety is our priority with 24/7 support and secure transactions.</p>
+          </div>
+          <div class="feature-card featured">
+            <div class="feature-badge">Most Popular</div>
+            <div class="feature-icon">
+              <i class="fas fa-gem"></i>
+            </div>
+            <h3>Premium Experiences</h3>
+            <p>Access exclusive destinations and luxury accommodations worldwide.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h3>Global Network</h3>
+            <p>Explore 150+ destinations with our network of local experts.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Destinations Section -->
-    <section class="destinations" id="destinations">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <div class="section-badge">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <span>Popular Destinations</span>
-                </div>
-                <h2 class="section-title">Explore Amazing Places</h2>
-                <p class="section-description">
-                    From bustling cities to serene beaches, discover the world's most beautiful destinations 
-                    handpicked by our travel experts.
-                </p>
-            </div>
+    <!-- Destinations -->
+    <section id="destinations" class="section container">
+      <div class="section-head">
+        <h2>Featured Destinations</h2>
+        <div class="filters">
+          <input id="destSearch" placeholder="Search destinations..." aria-label="Search destinations" />
+          <div class="filter-buttons" role="tablist">
+            <button class="chip active" data-category="all">All</button>
+            <button class="chip" data-category="beach">Beaches</button>
+            <button class="chip" data-category="mountains">Mountains</button>
+            <button class="chip" data-category="city">Cities</button>
+            <button class="chip" data-category="adventure">Adventure</button>
+          </div>
+        </div>
+      </div>
 
-            <!-- Destination Filters -->
-            <div class="destination-filters" data-aos="fade-up" data-aos-delay="100">
-                <button class="filter-btn active" data-filter="all">All Destinations</button>
-                <button class="filter-btn" data-filter="beaches">Beaches</button>
-                <button class="filter-btn" data-filter="cities">Cities</button>
-                <button class="filter-btn" data-filter="mountains">Mountains</button>
-                <button class="filter-btn" data-filter="cultural">Cultural</button>
-            </div>
-
-            <!-- Destinations Grid -->
-            <div class="destinations-grid" data-aos="fade-up" data-aos-delay="200">
-                <!-- Featured Destination -->
-                <div class="destination-card featured" data-category="beaches">
-                    <div class="destination-image">
-                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Santorini, Greece">
-                        <div class="destination-overlay">
-                            <div class="destination-badge">Featured</div>
-                            <div class="destination-actions">
-                                <button class="action-btn favorite-btn">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                                <button class="action-btn share-btn">
-                                    <i class="fas fa-share"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="destination-content">
-                        <div class="destination-header">
-                            <div class="destination-location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Santorini, Greece</span>
-                            </div>
-                            <div class="destination-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.9</span>
-                            </div>
-                        </div>
-                        <h3 class="destination-title">Magical Sunsets & White Architecture</h3>
-                        <p class="destination-description">
-                            Experience breathtaking sunsets, pristine beaches, and iconic blue-domed churches 
-                            in this magical Greek island paradise.
-                        </p>
-                        <div class="destination-features">
-                            <span class="feature-tag">Luxury Resorts</span>
-                            <span class="feature-tag">Wine Tours</span>
-                            <span class="feature-tag">Romantic</span>
-                        </div>
-                        <div class="destination-footer">
-                            <div class="destination-price">
-                                <span class="price-from">From</span>
-                                <span class="price-amount">$1,299</span>
-                                <span class="price-period">/person</span>
-                            </div>
-                            <button class="btn btn-primary">
-                                <span>Explore Now</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Regular Destinations -->
-                <div class="destination-card" data-category="cities">
-                    <div class="destination-image">
-                        <img src="https://images.unsplash.com/photo-1502602898536-47ad22581b52?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Paris, France">
-                    </div>
-                    <div class="destination-content">
-                        <div class="destination-header">
-                            <div class="destination-location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Paris, France</span>
-                            </div>
-                            <div class="destination-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.8</span>
-                            </div>
-                        </div>
-                        <h3 class="destination-title">City of Love & Lights</h3>
-                        <div class="destination-footer">
-                            <div class="destination-price">
-                                <span class="price-from">From</span>
-                                <span class="price-amount">$899</span>
-                                <span class="price-period">/person</span>
-                            </div>
-                            <button class="btn btn-outline">Explore</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="destination-card" data-category="mountains">
-                    <div class="destination-image">
-                        <img src="https://images.unsplash.com/photo-1464822759844-d150ad6cbf17?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Swiss Alps">
-                    </div>
-                    <div class="destination-content">
-                        <div class="destination-header">
-                            <div class="destination-location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Swiss Alps</span>
-                            </div>
-                            <div class="destination-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.9</span>
-                            </div>
-                        </div>
-                        <h3 class="destination-title">Alpine Adventure</h3>
-                        <div class="destination-footer">
-                            <div class="destination-price">
-                                <span class="price-from">From</span>
-                                <span class="price-amount">$1,599</span>
-                                <span class="price-period">/person</span>
-                            </div>
-                            <button class="btn btn-outline">Explore</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="destination-card" data-category="beaches">
-                    <div class="destination-image">
-                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Maldives">
-                    </div>
-                    <div class="destination-content">
-                        <div class="destination-header">
-                            <div class="destination-location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Maldives</span>
-                            </div>
-                            <div class="destination-rating">
-                                <i class="fas fa-star"></i>
-                                <span>5.0</span>
-                            </div>
-                        </div>
-                        <h3 class="destination-title">Tropical Paradise</h3>
-                        <div class="destination-footer">
-                            <div class="destination-price">
-                                <span class="price-from">From</span>
-                                <span class="price-amount">$2,299</span>
-                                <span class="price-period">/person</span>
-                            </div>
-                            <button class="btn btn-outline">Explore</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="destination-card" data-category="cultural">
-                    <div class="destination-image">
-                        <img src="https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tokyo, Japan">
-                    </div>
-                    <div class="destination-content">
-                        <div class="destination-header">
-                            <div class="destination-location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Tokyo, Japan</span>
-                            </div>
-                            <div class="destination-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.7</span>
-                            </div>
-                        </div>
-                        <h3 class="destination-title">Modern Meets Traditional</h3>
-                        <div class="destination-footer">
-                            <div class="destination-price">
-                                <span class="price-from">From</span>
-                                <span class="price-amount">$1,199</span>
-                                <span class="price-period">/person</span>
-                            </div>
-                            <button class="btn btn-outline">Explore</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="destination-card" data-category="cities">
-                    <div class="destination-image">
-                        <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="New York City">
-                    </div>
-                    <div class="destination-content">
-                        <div class="destination-header">
-                            <div class="destination-location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>New York, USA</span>
-                            </div>
-                            <div class="destination-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.6</span>
-                            </div>
-                        </div>
-                        <h3 class="destination-title">The Big Apple</h3>
-                        <div class="destination-footer">
-                            <div class="destination-price">
-                                <span class="price-from">From</span>
-                                <span class="price-amount">$799</span>
-                                <span class="price-period">/person</span>
-                            </div>
-                            <button class="btn btn-outline">Explore</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="destinations-cta" data-aos="fade-up" data-aos-delay="300">
-                <button class="btn btn-outline btn-large">
-                    <span>View All Destinations</span>
-                    <i class="fas fa-arrow-right"></i>
+      <div id="destGrid" class="card-grid">
+        <!-- Fallback content will be replaced by JavaScript -->
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" alt="Santorini, Greece" loading="lazy" />
+          <div class="card-body">
+            <h3>Santorini, Greece</h3>
+            <p class="muted">Stunning sunsets and white-washed architecture</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+              <div>
+                <strong style="color: var(--accent-1); font-size: 1.1rem;">$1,299</strong>
+                <div style="color: var(--muted); font-size: 0.9rem;">⭐ 4.9 • per person</div>
+              </div>
+              <div>
+                <button class="btn outline small" style="margin-right: 0.5rem;">
+                  <i class="fas fa-eye"></i>
                 </button>
+                <button class="btn primary small">
+                  <i class="fas fa-heart"></i>
+                </button>
+              </div>
             </div>
-        </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1464822759844-d150ad6cbf17?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" alt="Swiss Alps, Switzerland" loading="lazy" />
+          <div class="card-body">
+            <h3>Swiss Alps, Switzerland</h3>
+            <p class="muted">Breathtaking alpine views and pristine slopes</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+              <div>
+                <strong style="color: var(--accent-1); font-size: 1.1rem;">$1,599</strong>
+                <div style="color: var(--muted); font-size: 0.9rem;">⭐ 4.9 • per person</div>
+              </div>
+              <div>
+                <button class="btn outline small" style="margin-right: 0.5rem;">
+                  <i class="fas fa-eye"></i>
+                </button>
+                <button class="btn primary small">
+                  <i class="fas fa-heart"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" alt="Maldives" loading="lazy" />
+          <div class="card-body">
+            <h3>Maldives</h3>
+            <p class="muted">Crystal clear waters and luxury overwater bungalows</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+              <div>
+                <strong style="color: var(--accent-1); font-size: 1.1rem;">$2,299</strong>
+                <div style="color: var(--muted); font-size: 0.9rem;">⭐ 5.0 • per person</div>
+              </div>
+              <div>
+                <button class="btn outline small" style="margin-right: 0.5rem;">
+                  <i class="fas fa-eye"></i>
+                </button>
+                <button class="btn primary small">
+                  <i class="fas fa-heart"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <div class="section-badge">
-                    <i class="fas fa-concierge-bell"></i>
-                    <span>Our Services</span>
-                </div>
-                <h2 class="section-title">Complete Travel Solutions</h2>
-                <p class="section-description">
-                    From planning to execution, we handle every aspect of your journey with 
-                    professional expertise and personal care.
-                </p>
+    <!-- Tours -->
+    <section id="tours" class="section gray">
+      <div class="container">
+        <h2>Popular Tours</h2>
+        <div id="toursList" class="tours-list">
+          <!-- Fallback content will be replaced by JavaScript -->
+          <div class="tour">
+            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" alt="Amazon Rainforest Adventure" loading="lazy">
+            <div class="meta">
+              <h4>Amazon Rainforest Adventure</h4>
+              <p class="muted">Explore the world's largest tropical rainforest with expert guides</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                <div class="price">$3,299 / person</div>
+                <div style="color: var(--muted); font-size: 0.9rem;">10 days</div>
+              </div>
             </div>
-
-            <div class="services-grid">
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-icon">
-                        <i class="fas fa-plane"></i>
-                    </div>
-                    <h3 class="service-title">Flight Booking</h3>
-                    <p class="service-description">
-                        Find the best flight deals with our advanced search engine. Compare prices 
-                        across airlines and book with confidence.
-                    </p>
-                    <div class="service-features">
-                        <div class="service-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Best Price Guarantee</span>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check"></i>
-                            <span>24/7 Support</span>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Free Cancellation</span>
-                        </div>
-                    </div>
-                    <button class="btn btn-outline">Learn More</button>
-                </div>
-
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-icon">
-                        <i class="fas fa-hotel"></i>
-                    </div>
-                    <h3 class="service-title">Hotel Reservations</h3>
-                    <p class="service-description">
-                        Choose from luxury resorts to boutique hotels. We partner with the world's 
-                        best accommodation providers.
-                    </p>
-                    <div class="service-features">
-                        <div class="service-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Luxury Properties</span>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Instant Confirmation</span>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Member Rewards</span>
-                        </div>
-                    </div>
-                    <button class="btn btn-outline">Learn More</button>
-                </div>
-
-                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-icon">
-                        <i class="fas fa-car"></i>
-                    </div>
-                    <h3 class="service-title">Car Rentals</h3>
-                    <p class="service-description">
-                        Explore at your own pace with our premium car rental service. From economy 
-                        to luxury vehicles.
-                    </p>
-                    <div class="service-features">
-                        <div class="service-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Premium Fleet</span>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check"></i>
-                            <span>GPS Navigation</span>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Insurance Included</span>
-                        </div>
-                    </div>
-                    <button class="btn btn-outline">Learn More</button>
-                </div>
-
-                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-icon">
-                        <i class="fas fa-route"></i>
-                    </div>
-                    <h3 class="service-title">Custom Tours</h3>
-                    <p class="service-description">
-                        Create personalized itineraries with our local experts. Experience destinations 
-                        like never before.
-                    </p>
-                    <div class="service-features">
-                        <div class="service-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Local Guides</span>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Flexible Itinerary</span>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Private Groups</span>
-                        </div>
-                    </div>
-                    <button class="btn btn-outline">Learn More</button>
-                </div>
-
-                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="service-title">Travel Insurance</h3>
-                    <p class="service-description">
-                        Travel with peace of mind. Our comprehensive insurance covers medical 
-                        emergencies, trip cancellation, and more.
-                    </p>
-                    <div class="service-features">
-                        <div class="service-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Medical Coverage</span>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Trip Protection</span>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check"></i>
-                            <span>24/7 Assistance</span>
-                        </div>
-                    </div>
-                    <button class="btn btn-outline">Learn More</button>
-                </div>
-
-                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="service-icon">
-                        <i class="fas fa-concierge-bell"></i>
-                    </div>
-                    <h3 class="service-title">Concierge Service</h3>
-                    <p class="service-description">
-                        Enjoy VIP treatment with our exclusive concierge service. Restaurant bookings, 
-                        event tickets, and more.
-                    </p>
-                    <div class="service-features">
-                        <div class="service-feature">
-                            <i class="fas fa-check"></i>
-                            <span>VIP Access</span>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Personal Assistant</span>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Exclusive Events</span>
-                        </div>
-                    </div>
-                    <button class="btn btn-outline">Learn More</button>
-                </div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <button class="btn outline small">
+                <i class="fas fa-info-circle"></i> Details
+              </button>
+              <button class="btn primary small">
+                <i class="fas fa-calendar-check"></i> Book Now
+              </button>
             </div>
+          </div>
+          <div class="tour">
+            <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" alt="European Heritage Trail" loading="lazy">
+            <div class="meta">
+              <h4>European Heritage Trail</h4>
+              <p class="muted">Journey through historic cities and ancient landmarks</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                <div class="price">$2,199 / person</div>
+                <div style="color: var(--muted); font-size: 0.9rem;">14 days</div>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <button class="btn outline small">
+                <i class="fas fa-info-circle"></i> Details
+              </button>
+              <button class="btn primary small">
+                <i class="fas fa-calendar-check"></i> Book Now
+              </button>
+            </div>
+          </div>
+          <div class="tour">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" alt="Tropical Island Hopping" loading="lazy">
+            <div class="meta">
+              <h4>Tropical Island Hopping</h4>
+              <p class="muted">Experience paradise across multiple pristine islands</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                <div class="price">$1,899 / person</div>
+                <div style="color: var(--muted); font-size: 0.9rem;">7 days</div>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <button class="btn outline small">
+                <i class="fas fa-info-circle"></i> Details
+              </button>
+              <button class="btn primary small">
+                <i class="fas fa-calendar-check"></i> Book Now
+              </button>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <div class="section-badge">
-                    <i class="fas fa-quote-left"></i>
-                    <span>What Our Travelers Say</span>
-                </div>
-                <h2 class="section-title">Real Stories, Real Experiences</h2>
-                <p class="section-description">
-                    Don't just take our word for it. Here's what our satisfied travelers have to say 
-                    about their NextTrip experiences.
-                </p>
+    <!-- Hotels -->
+    <section id="hotels" class="section container">
+      <h2>Hotel Categories</h2>
+      <p class="muted">Choose from our carefully curated selection of accommodations.</p>
+
+      <div class="hotels-grid">
+        <article class="hotel-card">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Tropical Resort" loading="lazy" />
+          <div class="hotel-body">
+            <h3>Tropical Resort</h3>
+            <p>Crystal clear waters, overwater bungalows, and pristine coral reefs.</p>
+            <div class="hotel-meta">
+              <span class="price">From $2,299</span>
+              <button class="btn outline small book" data-title="Tropical Resort">Book</button>
             </div>
-
-            <!-- Testimonials Carousel -->
-            <div class="testimonials-carousel" data-aos="fade-up" data-aos-delay="200">
-                <div class="swiper testimonials-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="testimonial-card">
-                                <div class="testimonial-rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <blockquote class="testimonial-quote">
-                                    "NextTrip made our honeymoon absolutely perfect! From the luxury resort in Santorini 
-                                    to the private sunset cruise, every detail was flawlessly planned. The personal 
-                                    concierge service exceeded our expectations."
-                                </blockquote>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">
-                                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b647?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Sarah Johnson">
-                                    </div>
-                                    <div class="author-info">
-                                        <h4 class="author-name">Sarah Johnson</h4>
-                                        <p class="author-location">New York, USA</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-card">
-                                <div class="testimonial-rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <blockquote class="testimonial-quote">
-                                    "As a frequent business traveler, I need reliable service. NextTrip's 24/7 support 
-                                    and seamless booking process have made my life so much easier. Highly recommended!"
-                                </blockquote>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">
-                                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Michael Chen">
-                                    </div>
-                                    <div class="author-info">
-                                        <h4 class="author-name">Michael Chen</h4>
-                                        <p class="author-location">Singapore</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-card">
-                                <div class="testimonial-rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <blockquote class="testimonial-quote">
-                                    "The family trip to Japan was incredible! NextTrip arranged everything perfectly - 
-                                    from cultural tours in Kyoto to the amazing experience at Tokyo Disneyland. 
-                                    Our kids are still talking about it!"
-                                </blockquote>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">
-                                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Emma Rodriguez">
-                                    </div>
-                                    <div class="author-info">
-                                        <h4 class="author-name">Emma Rodriguez</h4>
-                                        <p class="author-location">Madrid, Spain</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
+          </div>
+        </article>
+        <article class="hotel-card">
+          <img src="https://images.unsplash.com/photo-1464822759844-d150ad6cbf17?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Alpine Lodge" loading="lazy" />
+          <div class="hotel-body">
+            <h3>Alpine Lodge</h3>
+            <p>Experience pristine mountain peaks, skiing, and breathtaking alpine views.</p>
+            <div class="hotel-meta">
+              <span class="price">From $1,599</span>
+              <button class="btn outline small book" data-title="Alpine Lodge">Book</button>
             </div>
-
-            <!-- Trust Indicators -->
-            <div class="trust-indicators" data-aos="fade-up" data-aos-delay="300">
-                <div class="trust-item">
-                    <div class="trust-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <div class="trust-content">
-                        <h4 class="trust-title">Best Travel Agency 2024</h4>
-                        <p class="trust-subtitle">Travel Excellence Awards</p>
-                    </div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon">
-                        <i class="fas fa-shield-check"></i>
-                    </div>
-                    <div class="trust-content">
-                        <h4 class="trust-title">Secure & Protected</h4>
-                        <p class="trust-subtitle">SSL Encrypted Bookings</p>
-                    </div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="trust-content">
-                        <h4 class="trust-title">100,000+ Happy Travelers</h4>
-                        <p class="trust-subtitle">Worldwide Community</p>
-                    </div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="trust-content">
-                        <h4 class="trust-title">4.9/5 Rating</h4>
-                        <p class="trust-subtitle">Based on 10,000+ Reviews</p>
-                    </div>
-                </div>
+          </div>
+        </article>
+        <article class="hotel-card">
+          <img src="https://images.unsplash.com/photo-1502602898536-47ad22581b52?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="City of Lights Hotel" loading="lazy" />
+          <div class="hotel-body">
+            <h3>City of Lights Hotel</h3>
+            <p>Discover romance, culture, and cuisine in the world's most beautiful city.</p>
+            <div class="hotel-meta">
+              <span class="price">From $899</span>
+              <button class="btn outline small book" data-title="City of Lights Hotel">Book</button>
             </div>
-        </div>
+          </div>
+        </article>
+      </div>
     </section>
+  </main>
 
-    <!-- Newsletter Section -->
-    <section class="newsletter" id="newsletter">
-        <div class="container">
-            <div class="newsletter-content" data-aos="fade-up">
-                <div class="newsletter-text">
-                    <h2 class="newsletter-title">
-                        Get Exclusive Travel Deals & Inspiration
-                    </h2>
-                    <p class="newsletter-description">
-                        Subscribe to our newsletter and be the first to know about amazing destinations, 
-                        special offers, and travel tips from our experts.
-                    </p>
-                    <div class="newsletter-benefits">
-                        <div class="benefit-item">
-                            <i class="fas fa-check"></i>
-                            <span>Exclusive discounts up to 50%</span>
-                        </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check"></i>
-                            <span>Early access to flash sales</span>
-                        </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check"></i>
-                            <span>Travel guides & insider tips</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="newsletter-form">
-                    <form class="subscription-form">
-                        <div class="input-group">
-                            <input type="email" placeholder="Enter your email address" required>
-                            <button type="submit" class="btn btn-primary">
-                                <span>Subscribe</span>
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </div>
-                        <p class="form-disclaimer">
-                            <i class="fas fa-lock"></i>
-                            We respect your privacy. Unsubscribe at any time.
-                        </p>
-                    </form>
-                </div>
-            </div>
+  <!-- Booking modal -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3 id="modalTitle">Book Tour</h3>
+      <form id="bookForm">
+        <label>
+          Name
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Travel Date
+          <input type="date" name="date" required />
+        </label>
+        <button class="btn primary" type="submit">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <footer id="support" class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="logo" href="index.html"><span class="logo-mark">✈️</span><span>NextTrip</span></a>
+        <p>Your trusted partner for extraordinary travel experiences worldwide.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         </div>
-    </section>
+      </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <!-- Footer Main -->
-            <div class="footer-main">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <div class="logo-icon">
-                            <i class="fas fa-paper-plane"></i>
-                        </div>
-                        <div class="logo-text">
-                            <span class="logo-name">NextTrip</span>
-                            <span class="logo-tagline">Premium Travel Experience</span>
-                        </div>
-                    </div>
-                    <p class="footer-description">
-                        Your trusted partner for extraordinary travel experiences. We turn your 
-                        dreams into unforgettable journeys with personalized service and attention to detail.
-                    </p>
-                    <div class="footer-social">
-                        <a href="#" class="social-link" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="YouTube">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </div>
+      <div>
+        <h4>Destinations</h4>
+        <ul>
+          <li><a href="destinations.html">Europe</a></li>
+          <li><a href="destinations.html">Asia</a></li>
+          <li><a href="destinations.html">Americas</a></li>
+          <li><a href="destinations.html">Africa</a></li>
+        </ul>
+      </div>
 
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h3 class="footer-title">Destinations</h3>
-                        <ul class="footer-list">
-                            <li><a href="#">Europe</a></li>
-                            <li><a href="#">Asia</a></li>
-                            <li><a href="#">Americas</a></li>
-                            <li><a href="#">Africa</a></li>
-                            <li><a href="#">Oceania</a></li>
-                        </ul>
-                    </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="tours.html">Flight Booking</a></li>
+          <li><a href="hotels.html">Hotel Reservations</a></li>
+          <li><a href="tours.html">Car Rentals</a></li>
+          <li><a href="support.html">Travel Insurance</a></li>
+        </ul>
+      </div>
 
-                    <div class="footer-column">
-                        <h3 class="footer-title">Services</h3>
-                        <ul class="footer-list">
-                            <li><a href="#">Flight Booking</a></li>
-                            <li><a href="#">Hotel Reservations</a></li>
-                            <li><a href="#">Car Rentals</a></li>
-                            <li><a href="#">Travel Insurance</a></li>
-                            <li><a href="#">Custom Tours</a></li>
-                        </ul>
-                    </div>
+      <div>
+        <h4>Contact</h4>
+        <address>
+          123 Travel Street<br/>
+          Adventure City, AC 12345<br/>
+          <a href="tel:+15551234567">+1 (555) 123-4567</a><br/>
+          <a href="mailto:hello@nexttrip.com">hello@nexttrip.com</a>
+        </address>
+      </div>
+    </div>
 
-                    <div class="footer-column">
-                        <h3 class="footer-title">Support</h3>
-                        <ul class="footer-list">
-                            <li><a href="#">Help Center</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Booking Support</a></li>
-                            <li><a href="#">Travel Guides</a></li>
-                            <li><a href="#">Safety Tips</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-column">
-                        <h3 class="footer-title">Contact Info</h3>
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div>
-                                    <p>123 Travel Street</p>
-                                    <p>Adventure City, AC 12345</p>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-phone"></i>
-                                <div>
-                                    <p>+1 (555) 123-4567</p>
-                                    <p>24/7 Support Available</p>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <div>
-                                    <p>hello@nexttrip.com</p>
-                                    <p>info@nexttrip.com</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-                <div class="footer-copyright">
-                    <p>&copy; 2025 NextTrip. All rights reserved.</p>
-                    <div class="footer-legal">
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms of Service</a>
-                        <a href="#">Cookie Policy</a>
-                    </div>
-                </div>
-                <div class="footer-team">
-                    <p class="team-credit">
-                        Crafted with <i class="fas fa-heart"></i> by our amazing team:
-                    </p>
-                    <div class="team-members">
-                        <span class="team-member">Ritesh Pandey</span>
-                        <span class="team-member">Akhil Pandey</span>
-                        <span class="team-member">Mohd Kayes Ansari</span>
-                        <span class="team-member">Omji</span>
-                    </div>
-                </div>
-                <div class="footer-certifications">
-                    <div class="certification">
-                        <i class="fas fa-certificate"></i>
-                        <span>IATA Certified</span>
-                    </div>
-                    <div class="certification">
-                        <i class="fas fa-shield-check"></i>
-                        <span>Secure Payments</span>
-                    </div>
-                </div>
-            </div>
+    <div class="footer-bottom">
+      <div class="footer-content">
+        <small>&copy; 2025 NextTrip. All rights reserved.</small>
+        <div class="footer-team">
+          <p>Crafted with ❤️ by: Ritesh Pandey, Akhil Pandey, Mohd Kayes Ansari, Omji</p>
         </div>
-    </footer>
+        <div class="footer-links">
+          <a href="support.html">Privacy Policy</a>
+          <a href="support.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-
-    <!-- External Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
-    
-    <!-- Custom Scripts -->
-    <script src="js/modern-app.js"></script>
-    <script src="js/animations.js"></script>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <script src="script.js"></script>
 </body>
 </html>

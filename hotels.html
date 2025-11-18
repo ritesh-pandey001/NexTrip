@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hotels & Accommodations - NextTrip</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Find and book the perfect accommodations with NextTrip - From luxury resorts to budget-friendly options" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><span class="logo-mark">✈️</span><span class="logo-text">NextTrip</span></a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="destinations.html" class="nav-link">Destinations</a></li>
+          <li><a href="tours.html" class="nav-link">Tours</a></li>
+          <li><a href="hotels.html" class="nav-link active">Hotels</a></li>
+          <li><a href="support.html" class="nav-link">Support</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <button class="btn ghost" id="signinBtn">Sign In</button>
+        <button class="btn primary" id="getStarted">Get Started</button>
+        <button class="mobile-nav-toggle" aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+
+    <!-- mobile nav -->
+    <div id="mobileNav" class="mobile-nav" hidden>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="tours.html">Tours</a></li>
+        <li><a href="hotels.html">Hotels</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <div class="page-header-content">
+          <h1>🏨 Hotels & Accommodations</h1>
+          <p>Find your perfect home away from home with our curated selection</p>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li><a href="index.html">Home</a></li>
+              <li>Hotels</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hotel Search Widget -->
+    <section class="section container">
+      <div class="hotel-search-widget">
+        <h2>Find Your Perfect Stay</h2>
+        <form class="search-form" id="hotelSearchForm">
+          <div class="form-group">
+            <label for="hotelDestination">Destination</label>
+            <input type="text" id="hotelDestination" placeholder="Where are you going?" required>
+          </div>
+          <div class="form-group">
+            <label for="checkIn">Check-in Date</label>
+            <input type="date" id="checkIn" required>
+          </div>
+          <div class="form-group">
+            <label for="checkOut">Check-out Date</label>
+            <input type="date" id="checkOut" required>
+          </div>
+          <div class="form-group">
+            <label for="hotelGuests">Guests & Rooms</label>
+            <select id="hotelGuests" required>
+              <option value="1-1">1 Guest, 1 Room</option>
+              <option value="2-1">2 Guests, 1 Room</option>
+              <option value="3-1">3 Guests, 1 Room</option>
+              <option value="4-1">4 Guests, 1 Room</option>
+              <option value="2-2">2 Guests, 2 Rooms</option>
+            </select>
+          </div>
+          <button type="submit" class="btn primary">
+            <i class="fas fa-search"></i> Search Hotels
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Featured Hotels -->
+    <section class="section container">
+      <div class="section-head">
+        <h2>Featured Hotels</h2>
+        <div class="filters">
+          <input id="hotelFilter" placeholder="Filter hotels..." aria-label="Filter hotels" />
+          <div class="filter-buttons" role="tablist">
+            <button class="chip active" data-category="all">All Hotels</button>
+            <button class="chip" data-category="luxury">Luxury</button>
+            <button class="chip" data-category="boutique">Boutique</button>
+            <button class="chip" data-category="budget">Budget</button>
+            <button class="chip" data-category="business">Business</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="hotelsList" class="hotels-list">
+        <!-- JS will render hotels here -->
+      </div>
+    </section>
+
+    <!-- Hotel Categories -->
+    <section class="section gray">
+      <div class="container">
+        <h2>Hotel Categories</h2>
+        <div class="categories-grid">
+          <div class="category-card featured">
+            <div class="category-badge">Most Popular</div>
+            <div class="category-icon">
+              <i class="fas fa-crown"></i>
+            </div>
+            <h3>Luxury Hotels</h3>
+            <p>5-star accommodations with exceptional service</p>
+            <ul>
+              <li>Concierge Services</li>
+              <li>Fine Dining</li>
+              <li>Spa & Wellness</li>
+              <li>Premium Amenities</li>
+            </ul>
+            <button class="btn primary">Browse Luxury</button>
+          </div>
+
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h3>Boutique Hotels</h3>
+            <p>Unique properties with distinctive character</p>
+            <ul>
+              <li>Artistic Design</li>
+              <li>Personalized Service</li>
+              <li>Local Character</li>
+              <li>Intimate Atmosphere</li>
+            </ul>
+            <button class="btn outline">Discover Boutique</button>
+          </div>
+
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <h3>Business Hotels</h3>
+            <p>Perfect for corporate travel and meetings</p>
+            <ul>
+              <li>Business Center</li>
+              <li>Conference Rooms</li>
+              <li>High-Speed WiFi</li>
+              <li>Airport Shuttle</li>
+            </ul>
+            <button class="btn outline">Business Travel</button>
+          </div>
+
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-wallet"></i>
+            </div>
+            <h3>Budget Hotels</h3>
+            <p>Comfortable stays without breaking the bank</p>
+            <ul>
+              <li>Great Value</li>
+              <li>Essential Amenities</li>
+              <li>Clean Comfort</li>
+              <li>Convenient Locations</li>
+            </ul>
+            <button class="btn outline">Budget Options</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hotel Amenities -->
+    <section class="section container">
+      <div class="section-header">
+        <h2>Hotel Amenities</h2>
+        <p class="section-description">Everything you need for a comfortable stay</p>
+      </div>
+      
+      <div class="amenities-grid">
+        <div class="amenity-card">
+          <div class="amenity-icon">
+            <i class="fas fa-wifi"></i>
+          </div>
+          <h3>Free WiFi</h3>
+          <p>High-speed internet access throughout the property</p>
+        </div>
+
+        <div class="amenity-card">
+          <div class="amenity-icon">
+            <i class="fas fa-swimming-pool"></i>
+          </div>
+          <h3>Swimming Pool</h3>
+          <p>Refreshing pools for relaxation and recreation</p>
+        </div>
+
+        <div class="amenity-card">
+          <div class="amenity-icon">
+            <i class="fas fa-dumbbell"></i>
+          </div>
+          <h3>Fitness Center</h3>
+          <p>Modern gym equipment for your workout routine</p>
+        </div>
+
+        <div class="amenity-card">
+          <div class="amenity-icon">
+            <i class="fas fa-utensils"></i>
+          </div>
+          <h3>Restaurant & Bar</h3>
+          <p>Delicious dining options and refreshing beverages</p>
+        </div>
+
+        <div class="amenity-card">
+          <div class="amenity-icon">
+            <i class="fas fa-car"></i>
+          </div>
+          <h3>Parking</h3>
+          <p>Convenient and secure parking for your vehicle</p>
+        </div>
+
+        <div class="amenity-card">
+          <div class="amenity-icon">
+            <i class="fas fa-spa"></i>
+          </div>
+          <h3>Spa Services</h3>
+          <p>Relaxation and wellness treatments</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Benefits -->
+    <section class="section gray">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Book With NextTrip</h2>
+          <p class="section-description">Experience the benefits of booking through our platform</p>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-tag"></i>
+            </div>
+            <h3>Best Price Guarantee</h3>
+            <p>We match or beat any lower price you find elsewhere</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-times-circle"></i>
+            </div>
+            <h3>Free Cancellation</h3>
+            <p>Cancel up to 24 hours before check-in on most bookings</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <h3>Member Rewards</h3>
+            <p>Earn points and enjoy exclusive member benefits</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <h3>24/7 Customer Support</h3>
+            <p>Get help whenever you need it, day or night</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Booking modal -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3 id="modalTitle">Book Hotel</h3>
+      <form id="bookForm">
+        <label>
+          Name
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Check-in Date
+          <input type="date" name="checkin" required />
+        </label>
+        <label>
+          Check-out Date
+          <input type="date" name="checkout" required />
+        </label>
+        <label>
+          Number of Guests
+          <select name="guests" required>
+            <option value="1">1 Guest</option>
+            <option value="2">2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4+ Guests</option>
+          </select>
+        </label>
+        <button class="btn primary" type="submit">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <footer id="support" class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="logo" href="index.html"><span class="logo-mark">✈️</span><span>NextTrip</span></a>
+        <p>Your trusted partner for extraordinary travel experiences worldwide.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Destinations</h4>
+        <ul>
+          <li><a href="destinations.html">Europe</a></li>
+          <li><a href="destinations.html">Asia</a></li>
+          <li><a href="destinations.html">Americas</a></li>
+          <li><a href="destinations.html">Africa</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="tours.html">Flight Booking</a></li>
+          <li><a href="hotels.html">Hotel Reservations</a></li>
+          <li><a href="tours.html">Car Rentals</a></li>
+          <li><a href="support.html">Travel Insurance</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <address>
+          123 Travel Street<br/>
+          Adventure City, AC 12345<br/>
+          <a href="tel:+15551234567">+1 (555) 123-4567</a><br/>
+          <a href="mailto:hello@nexttrip.com">hello@nexttrip.com</a>
+        </address>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-content">
+        <small>&copy; 2025 NextTrip. All rights reserved.</small>
+        <div class="footer-team">
+          <p>Crafted with ❤️ by: Ritesh Pandey, Akhil Pandey, Mohd Kayes Ansari, Omji</p>
+        </div>
+        <div class="footer-links">
+          <a href="support.html">Privacy Policy</a>
+          <a href="support.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      color: white;
+      padding: 4rem 0 2rem;
+      margin-top: 0;
+    }
+    
+    .page-header-content {
+      text-align: center;
+    }
+    
+    .page-header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .page-header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+    
+    .breadcrumb {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 0.9rem;
+    }
+    
+    .breadcrumb li::after {
+      content: ' / ';
+      margin-left: 0.5rem;
+      opacity: 0.7;
+    }
+    
+    .breadcrumb li:last-child::after {
+      content: none;
+    }
+    
+    .breadcrumb a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      color: white;
+    }
+
+    .hotel-search-widget {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+    }
+
+    .hotel-search-widget h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--text);
+    }
+
+    .search-form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      align-items: end;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group select {
+      padding: 0.75rem;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      background: var(--background);
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--accent-1);
+      outline: none;
+    }
+    
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .amenity-card {
+      background: var(--card);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(14,165,233,0.1);
+    }
+    
+    .amenity-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(14,165,233,0.1);
+    }
+    
+    .amenity-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      color: white;
+      font-size: 1.5rem;
+    }
+    
+    .amenity-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+    
+    .amenity-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .benefit-card {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(14,165,233,0.1);
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(14,165,233,0.12);
+    }
+
+    .benefit-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: white;
+      font-size: 1.7rem;
+    }
+
+    .benefit-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .benefit-card p {
+      color: var(--muted);
+    }
+    
+    @media (max-width: 600px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      
+      .page-header {
+        padding: 3rem 0 1.5rem;
+      }
+      
+      .search-form {
+        grid-template-columns: 1fr;
+      }
+      
+      .amenities-grid,
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <script src="script.js"></script>
+  
+  <script>
+    // Additional functionality for hotels page
+    document.addEventListener('DOMContentLoaded', () => {
+      // Enhanced hotels data for the hotels page
+      const allHotels = [
+        {
+          title: 'Grand Palace Hotel',
+          location: 'Paris, France',
+          price: '$299',
+          category: 'luxury',
+          rating: 5,
+          img: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&h=600&q=80',
+          description: 'Iconic luxury hotel in the heart of Paris',
+          amenities: ['Free WiFi', 'Spa', 'Restaurant', 'Pool']
+        },
+        {
+          title: 'Artisan Boutique Inn',
+          location: 'Tokyo, Japan',
+          price: '$189',
+          category: 'boutique',
+          rating: 4,
+          img: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&h=600&q=80',
+          description: 'Unique design hotel with modern Japanese aesthetics',
+          amenities: ['Free WiFi', 'Tea Ceremony', 'Garden', 'Bar']
+        },
+        {
+          title: 'Business Central Hotel',
+          location: 'New York, USA',
+          price: '$159',
+          category: 'business',
+          rating: 4,
+          img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&h=600&q=80',
+          description: 'Perfect for corporate travelers and meetings',
+          amenities: ['Business Center', 'Meeting Rooms', 'Gym', 'WiFi']
+        },
+        {
+          title: 'Cozy Stay Inn',
+          location: 'Barcelona, Spain',
+          price: '$79',
+          category: 'budget',
+          rating: 3,
+          img: 'https://images.unsplash.com/photo-1506059612708-99d6c258160e?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&h=600&q=80',
+          description: 'Comfortable accommodations at great value',
+          amenities: ['Free WiFi', 'Breakfast', 'Clean Rooms', '24/7 Reception']
+        },
+        {
+          title: 'Oceanfront Resort',
+          location: 'Maldives',
+          price: '$599',
+          category: 'luxury',
+          rating: 5,
+          img: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&h=600&q=80',
+          description: 'Overwater villas with pristine ocean views',
+          amenities: ['Private Villa', 'Spa', 'Water Sports', 'Fine Dining']
+        },
+        {
+          title: 'Historic Charm Hotel',
+          location: 'Rome, Italy',
+          price: '$139',
+          category: 'boutique',
+          rating: 4,
+          img: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&h=600&q=80',
+          description: 'Classic elegance in the eternal city',
+          amenities: ['Historic Building', 'Roof Terrace', 'Restaurant', 'WiFi']
+        }
+      ];
+
+      const hotelsList = document.getElementById('hotelsList');
+      const hotelFilter = document.getElementById('hotelFilter');
+      const filterChips = document.querySelectorAll('.filter-buttons .chip');
+
+      function renderStars(rating) {
+        return '★'.repeat(rating) + '☆'.repeat(5 - rating);
+      }
+
+      function renderHotels(hotels) {
+        hotelsList.innerHTML = '';
+        hotels.forEach(hotel => {
+          const hotelElement = document.createElement('div');
+          hotelElement.className = 'tour'; // Reusing tour styles for consistency
+          hotelElement.innerHTML = `
+            <img src="${hotel.img}" alt="${hotel.title}" loading="lazy">
+            <div class="meta">
+              <h4>${hotel.title}</h4>
+              <div class="hotel-location" style="color: var(--muted); font-size: 0.9rem; margin-bottom: 0.5rem;">
+                <i class="fas fa-map-marker-alt"></i> ${hotel.location}
+              </div>
+              <div class="hotel-rating" style="color: #ffa500; margin-bottom: 0.5rem;">
+                ${renderStars(hotel.rating)}
+              </div>
+              <p class="muted">${hotel.description}</p>
+              <div class="hotel-amenities" style="display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.5rem 0;">
+                ${hotel.amenities.map(amenity => `<span class="amenity-tag" style="background: var(--accent-1); color: white; padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem;">${amenity}</span>`).join('')}
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                <div class="price">${hotel.price} / night</div>
+                <div style="color: var(--muted); font-size: 0.9rem;">${hotel.rating} stars</div>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <button class="btn outline small" onclick="viewHotelDetails('${hotel.title}')">
+                <i class="fas fa-info-circle"></i> Details
+              </button>
+              <button class="btn primary small book" data-title="${hotel.title}">
+                <i class="fas fa-bed"></i> Book Now
+              </button>
+            </div>
+          `;
+          hotelsList.appendChild(hotelElement);
+        });
+      }
+
+      // Initial render
+      renderHotels(allHotels);
+
+      // Search functionality
+      hotelFilter && hotelFilter.addEventListener('input', (e) => {
+        const query = e.target.value.trim().toLowerCase();
+        const filtered = allHotels.filter(hotel => 
+          hotel.title.toLowerCase().includes(query) ||
+          hotel.location.toLowerCase().includes(query) ||
+          hotel.description.toLowerCase().includes(query) ||
+          hotel.category.toLowerCase().includes(query)
+        );
+        renderHotels(filtered);
+      });
+
+      // Filter functionality
+      filterChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          filterChips.forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          
+          const category = chip.dataset.category;
+          const filtered = category === 'all' ? allHotels : allHotels.filter(h => h.category === category);
+          renderHotels(filtered);
+        });
+      });
+
+      // Hotel search form
+      const hotelSearchForm = document.getElementById('hotelSearchForm');
+      hotelSearchForm && hotelSearchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const destination = document.getElementById('hotelDestination').value;
+        const checkin = document.getElementById('checkIn').value;
+        const checkout = document.getElementById('checkOut').value;
+        const guests = document.getElementById('hotelGuests').value;
+        
+        // Filter hotels based on search criteria
+        const filtered = allHotels.filter(hotel => 
+          hotel.location.toLowerCase().includes(destination.toLowerCase()) ||
+          hotel.title.toLowerCase().includes(destination.toLowerCase())
+        );
+        
+        renderHotels(filtered.length > 0 ? filtered : allHotels);
+        
+        // Show notification
+        const notification = document.createElement('div');
+        notification.className = 'notification';
+        notification.innerHTML = `
+          <div style="background: var(--accent-1); color: white; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center;">
+            <i class="fas fa-search"></i> 
+            Searching for hotels in "${destination}" from ${checkin} to ${checkout} for ${guests}...
+          </div>
+        `;
+        hotelSearchForm.parentNode.insertBefore(notification, hotelSearchForm.nextSibling);
+        
+        setTimeout(() => {
+          if (notification.parentNode) {
+            notification.parentNode.removeChild(notification);
+          }
+        }, 3000);
+      });
+    });
+
+    // Global function for hotel details (called from rendered hotels)
+    function viewHotelDetails(hotelName) {
+      alert(`Viewing details for: ${hotelName}\n\nDetailed information and photos would be displayed here.`);
+    }
+  </script>
+</body>
+</html>

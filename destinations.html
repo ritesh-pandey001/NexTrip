@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Travel Destinations - NextTrip</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Explore amazing travel destinations with NextTrip - Discover Europe, Asia, Americas, and Africa" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><span class="logo-mark">✈️</span><span class="logo-text">NextTrip</span></a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="destinations.html" class="nav-link active">Destinations</a></li>
+          <li><a href="tours.html" class="nav-link">Tours</a></li>
+          <li><a href="hotels.html" class="nav-link">Hotels</a></li>
+          <li><a href="support.html" class="nav-link">Support</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <button class="btn ghost" id="signinBtn">Sign In</button>
+        <button class="btn primary" id="getStarted">Get Started</button>
+        <button class="mobile-nav-toggle" aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+
+    <!-- mobile nav -->
+    <div id="mobileNav" class="mobile-nav" hidden>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="tours.html">Tours</a></li>
+        <li><a href="hotels.html">Hotels</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <div class="page-header-content">
+          <h1>🌍 Travel Destinations</h1>
+          <p>Discover incredible places around the world with expertly curated experiences</p>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li><a href="index.html">Home</a></li>
+              <li>Destinations</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- Destination Search & Filters -->
+    <section class="section container">
+      <div class="destination-search">
+        <h2>Find Your Next Adventure</h2>
+        <div class="search-controls">
+          <input id="destinationSearch" placeholder="Search destinations..." aria-label="Search destinations" />
+          <div class="region-filters" role="tablist">
+            <button class="chip active" data-region="all">All Regions</button>
+            <button class="chip" data-region="europe">Europe</button>
+            <button class="chip" data-region="asia">Asia</button>
+            <button class="chip" data-region="americas">Americas</button>
+            <button class="chip" data-region="africa">Africa</button>
+            <button class="chip" data-region="oceania">Oceania</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Destinations -->
+    <section class="section container">
+      <div class="section-head">
+        <h2>Popular Destinations</h2>
+        <p class="section-description">Explore our most loved travel destinations</p>
+      </div>
+
+      <div id="destinationsList" class="destinations-list">
+        <!-- JS will render destinations here -->
+      </div>
+    </section>
+
+    <!-- Regional Highlights -->
+    <section class="section gray">
+      <div class="container">
+        <h2>Explore by Region</h2>
+        <div class="regions-grid">
+          <div class="region-card" data-region="europe">
+            <div class="region-overlay">
+              <h3>Europe</h3>
+              <p>Rich history, stunning architecture, diverse cultures</p>
+              <div class="region-highlights">
+                <span>🏰 Historic Castles</span>
+                <span>🍷 Fine Cuisine</span>
+                <span>🎨 Art & Culture</span>
+              </div>
+              <button class="btn outline" onclick="filterByRegion('europe')">Explore Europe</button>
+            </div>
+            <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" alt="Europe destinations" loading="lazy">
+          </div>
+
+          <div class="region-card" data-region="asia">
+            <div class="region-overlay">
+              <h3>Asia</h3>
+              <p>Ancient traditions, modern marvels, exotic adventures</p>
+              <div class="region-highlights">
+                <span>🏯 Ancient Temples</span>
+                <span>🍜 Street Food</span>
+                <span>🏔️ Natural Wonders</span>
+              </div>
+              <button class="btn outline" onclick="filterByRegion('asia')">Explore Asia</button>
+            </div>
+            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" alt="Asia destinations" loading="lazy">
+          </div>
+
+          <div class="region-card" data-region="americas">
+            <div class="region-overlay">
+              <h3>Americas</h3>
+              <p>Diverse landscapes, vibrant cities, natural beauty</p>
+              <div class="region-highlights">
+                <span>🏙️ Dynamic Cities</span>
+                <span>🌿 Rainforests</span>
+                <span>🏔️ Mountain Ranges</span>
+              </div>
+              <button class="btn outline" onclick="filterByRegion('americas')">Explore Americas</button>
+            </div>
+            <img src="https://images.unsplash.com/photo-1418065460487-3956c3043281?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" alt="Americas destinations" loading="lazy">
+          </div>
+
+          <div class="region-card" data-region="africa">
+            <div class="region-overlay">
+              <h3>Africa</h3>
+              <p>Wildlife safaris, ancient civilizations, desert adventures</p>
+              <div class="region-highlights">
+                <span>🦁 Wildlife Safaris</span>
+                <span>🏛️ Ancient History</span>
+                <span>🏜️ Desert Adventures</span>
+              </div>
+              <button class="btn outline" onclick="filterByRegion('africa')">Explore Africa</button>
+            </div>
+            <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" alt="Africa destinations" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Travel Inspiration -->
+    <section class="section container">
+      <div class="section-header">
+        <h2>Travel Inspiration</h2>
+        <p class="section-description">Get inspired for your next adventure</p>
+      </div>
+
+      <div class="inspiration-grid">
+        <div class="inspiration-card featured">
+          <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73c6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Best time to travel" loading="lazy">
+          <div class="inspiration-content">
+            <span class="inspiration-category">Travel Tips</span>
+            <h3>Best Times to Visit Popular Destinations</h3>
+            <p>Plan your perfect trip with our seasonal travel guide</p>
+            <a href="#" class="read-more-link">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="inspiration-card">
+          <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Budget travel tips" loading="lazy">
+          <div class="inspiration-content">
+            <span class="inspiration-category">Budget Travel</span>
+            <h3>Budget-Friendly Destinations</h3>
+            <p>Amazing places that won't break the bank</p>
+            <a href="#" class="read-more-link">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="inspiration-card">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Solo travel destinations" loading="lazy">
+          <div class="inspiration-content">
+            <span class="inspiration-category">Solo Travel</span>
+            <h3>Best Solo Travel Destinations</h3>
+            <p>Safe and exciting places for solo adventurers</p>
+            <a href="#" class="read-more-link">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="section gray">
+      <div class="container">
+        <div class="newsletter-signup">
+          <div class="newsletter-content">
+            <h2>Stay Updated on Travel Deals</h2>
+            <p>Get exclusive offers, travel tips, and destination guides delivered to your inbox</p>
+          </div>
+          <form id="newsletterForm" class="newsletter-form">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit" class="btn primary">
+              <i class="fas fa-envelope"></i> Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Booking modal -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3 id="modalTitle">Book Destination</h3>
+      <form id="bookForm">
+        <label>
+          Name
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Travel Date
+          <input type="date" name="date" required />
+        </label>
+        <label>
+          Number of Travelers
+          <select name="travelers" required>
+            <option value="1">1 Person</option>
+            <option value="2">2 People</option>
+            <option value="3">3 People</option>
+            <option value="4">4+ People</option>
+          </select>
+        </label>
+        <button class="btn primary" type="submit">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <footer id="support" class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="logo" href="index.html"><span class="logo-mark">✈️</span><span>NextTrip</span></a>
+        <p>Your trusted partner for extraordinary travel experiences worldwide.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Destinations</h4>
+        <ul>
+          <li><a href="destinations.html">Europe</a></li>
+          <li><a href="destinations.html">Asia</a></li>
+          <li><a href="destinations.html">Americas</a></li>
+          <li><a href="destinations.html">Africa</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="tours.html">Flight Booking</a></li>
+          <li><a href="hotels.html">Hotel Reservations</a></li>
+          <li><a href="tours.html">Car Rentals</a></li>
+          <li><a href="support.html">Travel Insurance</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <address>
+          123 Travel Street<br/>
+          Adventure City, AC 12345<br/>
+          <a href="tel:+15551234567">+1 (555) 123-4567</a><br/>
+          <a href="mailto:hello@nexttrip.com">hello@nexttrip.com</a>
+        </address>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-content">
+        <small>&copy; 2025 NextTrip. All rights reserved.</small>
+        <div class="footer-team">
+          <p>Crafted with ❤️ by: Ritesh Pandey, Akhil Pandey, Mohd Kayes Ansari, Omji</p>
+        </div>
+        <div class="footer-links">
+          <a href="support.html">Privacy Policy</a>
+          <a href="support.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      color: white;
+      padding: 4rem 0 2rem;
+      margin-top: 0;
+    }
+    
+    .page-header-content {
+      text-align: center;
+    }
+    
+    .page-header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .page-header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+    
+    .breadcrumb {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 0.9rem;
+    }
+    
+    .breadcrumb li::after {
+      content: ' / ';
+      margin-left: 0.5rem;
+      opacity: 0.7;
+    }
+    
+    .breadcrumb li:last-child::after {
+      content: none;
+    }
+    
+    .breadcrumb a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      color: white;
+    }
+
+    .destination-search {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .destination-search h2 {
+      margin-bottom: 2rem;
+      color: var(--text);
+    }
+
+    .search-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .search-controls input {
+      max-width: 400px;
+      width: 100%;
+      padding: 1rem 1.5rem;
+      border: 2px solid var(--border);
+      border-radius: 50px;
+      background: var(--background);
+      color: var(--text);
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .search-controls input:focus {
+      border-color: var(--accent-1);
+      outline: none;
+    }
+
+    .region-filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .regions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .region-card {
+      position: relative;
+      height: 300px;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .region-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(14,165,233,0.2);
+    }
+
+    .region-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .region-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+      color: white;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .region-overlay h3 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .region-overlay p {
+      margin-bottom: 1rem;
+      opacity: 0.9;
+    }
+
+    .region-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .region-highlights span {
+      background: rgba(255,255,255,0.2);
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .inspiration-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .inspiration-card {
+      background: var(--card);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(14,165,233,0.1);
+    }
+
+    .inspiration-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(14,165,233,0.12);
+    }
+
+    .inspiration-card.featured {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+
+    .inspiration-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .inspiration-content {
+      padding: 1.5rem;
+    }
+
+    .inspiration-category {
+      background: var(--accent-1);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .inspiration-card h3 {
+      margin: 1rem 0 0.5rem;
+      color: var(--text);
+      font-size: 1.2rem;
+    }
+
+    .inspiration-card p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .read-more-link {
+      color: var(--accent-1);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .read-more-link:hover {
+      color: var(--accent-2);
+    }
+
+    .newsletter-signup {
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      color: white;
+      padding: 3rem;
+      border-radius: 20px;
+      text-align: center;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .newsletter-content h2 {
+      margin-bottom: 1rem;
+    }
+
+    .newsletter-content p {
+      opacity: 0.9;
+      margin: 0;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 1rem;
+      max-width: 400px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .newsletter-form button {
+      white-space: nowrap;
+      background: rgba(255,255,255,0.2);
+      border: 2px solid white;
+      color: white;
+    }
+
+    .newsletter-form button:hover {
+      background: white;
+      color: var(--accent-1);
+    }
+
+    @media (max-width: 900px) {
+      .newsletter-signup {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .newsletter-form {
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      
+      .page-header {
+        padding: 3rem 0 1.5rem;
+      }
+
+      .regions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .inspiration-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .region-filters {
+        justify-content: center;
+      }
+    }
+  </style>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <script src="script.js"></script>
+  
+  <script>
+    // Additional functionality for destinations page
+    document.addEventListener('DOMContentLoaded', () => {
+      // Enhanced destinations data
+      const allDestinations = [
+        {
+          title: 'Paris, France',
+          region: 'europe',
+          price: 'From $899',
+          img: 'https://images.unsplash.com/photo-1502602898536-47ad22581b52?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&h=600&q=80',
+          description: 'The City of Light beckons with iconic landmarks and romance',
+          highlights: ['Eiffel Tower', 'Louvre Museum', 'Seine River Cruise']
+        },
+        {
+          title: 'Tokyo, Japan',
+          region: 'asia',
+          price: 'From $1,299',
+          img: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&h=600&q=80',
+          description: 'Where ancient tradition meets cutting-edge modernity',
+          highlights: ['Temples & Shrines', 'Cherry Blossoms', 'Technology Hub']
+        },
+        {
+          title: 'New York, USA',
+          region: 'americas',
+          price: 'From $699',
+          img: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&h=600&q=80',
+          description: 'The city that never sleeps, full of energy and opportunities',
+          highlights: ['Times Square', 'Central Park', 'Broadway Shows']
+        },
+        {
+          title: 'Cape Town, South Africa',
+          region: 'africa',
+          price: 'From $1,099',
+          img: 'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&h=600&q=80',
+          description: 'Stunning landscapes, wine country, and rich culture',
+          highlights: ['Table Mountain', 'Wine Tours', 'Penguin Colony']
+        },
+        {
+          title: 'Sydney, Australia',
+          region: 'oceania',
+          price: 'From $1,499',
+          img: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&h=600&q=80',
+          description: 'Harbor city with iconic landmarks and beach culture',
+          highlights: ['Opera House', 'Harbor Bridge', 'Bondi Beach']
+        },
+        {
+          title: 'Rome, Italy',
+          region: 'europe',
+          price: 'From $799',
+          img: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&h=600&q=80',
+          description: 'Eternal city filled with history, art, and culinary delights',
+          highlights: ['Colosseum', 'Vatican City', 'Roman Forum']
+        },
+        {
+          title: 'Bali, Indonesia',
+          region: 'asia',
+          price: 'From $599',
+          img: 'https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&h=600&q=80',
+          description: 'Tropical paradise with temples, beaches, and wellness',
+          highlights: ['Hindu Temples', 'Rice Terraces', 'Beach Resorts']
+        },
+        {
+          title: 'Rio de Janeiro, Brazil',
+          region: 'americas',
+          price: 'From $899',
+          img: 'https://images.unsplash.com/photo-1544277147-6d5f8c8c1b12?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&h=600&q=80',
+          description: 'Vibrant culture, stunning beaches, and iconic Christ statue',
+          highlights: ['Christ the Redeemer', 'Copacabana Beach', 'Carnival']
+        }
+      ];
+
+      const destinationsList = document.getElementById('destinationsList');
+      const destinationSearch = document.getElementById('destinationSearch');
+      const regionFilters = document.querySelectorAll('.region-filters .chip');
+
+      function renderDestinations(destinations) {
+        destinationsList.innerHTML = '';
+        destinations.forEach(destination => {
+          const destElement = document.createElement('div');
+          destElement.className = 'tour'; // Reusing tour styles for consistency
+          destElement.innerHTML = `
+            <img src="${destination.img}" alt="${destination.title}" loading="lazy">
+            <div class="meta">
+              <h4>${destination.title}</h4>
+              <p class="muted">${destination.description}</p>
+              <div class="destination-highlights" style="display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.5rem 0;">
+                ${destination.highlights.map(highlight => `<span class="highlight-tag" style="background: var(--accent-1); color: white; padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem;">${highlight}</span>`).join('')}
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                <div class="price">${destination.price}</div>
+                <div style="color: var(--muted); font-size: 0.9rem; text-transform: capitalize;">${destination.region}</div>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <button class="btn outline small" onclick="viewDestinationDetails('${destination.title}')">
+                <i class="fas fa-info-circle"></i> Learn More
+              </button>
+              <button class="btn primary small book" data-title="${destination.title}">
+                <i class="fas fa-plane"></i> Book Trip
+              </button>
+            </div>
+          `;
+          destinationsList.appendChild(destElement);
+        });
+      }
+
+      // Initial render
+      renderDestinations(allDestinations);
+
+      // Search functionality
+      destinationSearch && destinationSearch.addEventListener('input', (e) => {
+        const query = e.target.value.trim().toLowerCase();
+        const filtered = allDestinations.filter(dest => 
+          dest.title.toLowerCase().includes(query) ||
+          dest.description.toLowerCase().includes(query) ||
+          dest.region.toLowerCase().includes(query) ||
+          dest.highlights.some(h => h.toLowerCase().includes(query))
+        );
+        renderDestinations(filtered);
+      });
+
+      // Filter functionality
+      regionFilters.forEach(filter => {
+        filter.addEventListener('click', () => {
+          regionFilters.forEach(f => f.classList.remove('active'));
+          filter.classList.add('active');
+          
+          const region = filter.dataset.region;
+          const filtered = region === 'all' ? allDestinations : allDestinations.filter(d => d.region === region);
+          renderDestinations(filtered);
+        });
+      });
+
+      // Newsletter form
+      const newsletterForm = document.getElementById('newsletterForm');
+      newsletterForm && newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = e.target.querySelector('input[type="email"]').value;
+        
+        // Show success message
+        const successMessage = document.createElement('div');
+        successMessage.innerHTML = `
+          <div style="background: #10b981; color: white; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center;">
+            <i class="fas fa-check-circle"></i> 
+            Thank you! You've successfully subscribed to our newsletter with ${email}
+          </div>
+        `;
+        newsletterForm.parentNode.insertBefore(successMessage, newsletterForm.nextSibling);
+        
+        // Reset form
+        newsletterForm.reset();
+        
+        // Remove success message after 5 seconds
+        setTimeout(() => {
+          if (successMessage.parentNode) {
+            successMessage.parentNode.removeChild(successMessage);
+          }
+        }, 5000);
+      });
+    });
+
+    // Global functions
+    function filterByRegion(region) {
+      const regionFilters = document.querySelectorAll('.region-filters .chip');
+      regionFilters.forEach(f => f.classList.remove('active'));
+      
+      const targetFilter = document.querySelector(`[data-region="${region}"]`);
+      if (targetFilter) {
+        targetFilter.classList.add('active');
+        
+        // Scroll to destinations list
+        document.getElementById('destinationsList').scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+        
+        // Trigger filter
+        targetFilter.click();
+      }
+    }
+
+    function viewDestinationDetails(destinationName) {
+      alert(`Exploring ${destinationName}...\n\nDetailed information about attractions, best time to visit, local customs, and travel tips would be displayed here.`);
+    }
+  </script>
+</body>
+</html>

@@ -695,6 +695,7 @@ img {
     display: flex;
     align-items: center;
     overflow: hidden;
+    padding-top: 80px; /* Add top padding for navbar */
 }
 
 .hero-background {

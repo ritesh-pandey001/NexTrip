@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tours & Packages - NextTrip</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Discover amazing tour packages with NextTrip - Curated travel experiences worldwide" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><span class="logo-mark">✈️</span><span class="logo-text">NextTrip</span></a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="destinations.html" class="nav-link">Destinations</a></li>
+          <li><a href="tours.html" class="nav-link active">Tours</a></li>
+          <li><a href="hotels.html" class="nav-link">Hotels</a></li>
+          <li><a href="support.html" class="nav-link">Support</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <button class="btn ghost" id="signinBtn">Sign In</button>
+        <button class="btn primary" id="getStarted">Get Started</button>
+        <button class="mobile-nav-toggle" aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+
+    <!-- mobile nav -->
+    <div id="mobileNav" class="mobile-nav" hidden>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="tours.html">Tours</a></li>
+        <li><a href="hotels.html">Hotels</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <div class="page-header-content">
+          <h1>🎒 Tours & Packages</h1>
+          <p>Expertly curated travel experiences for unforgettable adventures</p>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li><a href="index.html">Home</a></li>
+              <li>Tours</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tours Content -->
+    <section class="section container">
+      <div class="section-head">
+        <h2>All Tours</h2>
+        <div class="filters">
+          <input id="tourSearch" placeholder="Search tours..." aria-label="Search tours" />
+          <div class="filter-buttons" role="tablist">
+            <button class="chip active" data-category="all">All Tours</button>
+            <button class="chip" data-category="adventure">Adventure</button>
+            <button class="chip" data-category="cultural">Cultural</button>
+            <button class="chip" data-category="luxury">Luxury</button>
+            <button class="chip" data-category="family">Family</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="toursList" class="tours-list">
+        <!-- JS will render tours here -->
+      </div>
+    </section>
+
+    <!-- Tour Categories -->
+    <section class="section gray">
+      <div class="container">
+        <h2>Tour Categories</h2>
+        <div class="categories-grid">
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-mountain"></i>
+            </div>
+            <h3>Adventure Tours</h3>
+            <p>Thrilling experiences for adventure seekers</p>
+            <ul>
+              <li>Mountain Climbing</li>
+              <li>Safari Adventures</li>
+              <li>Extreme Sports</li>
+              <li>Hiking Expeditions</li>
+            </ul>
+            <button class="btn outline">View Adventures</button>
+          </div>
+
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-landmark"></i>
+            </div>
+            <h3>Cultural Tours</h3>
+            <p>Immersive experiences in local traditions</p>
+            <ul>
+              <li>Historical Sites</li>
+              <li>Local Festivals</li>
+              <li>Art & Museums</li>
+              <li>Traditional Cuisine</li>
+            </ul>
+            <button class="btn outline">Explore Culture</button>
+          </div>
+
+          <div class="category-card featured">
+            <div class="category-badge">Most Popular</div>
+            <div class="category-icon">
+              <i class="fas fa-gem"></i>
+            </div>
+            <h3>Luxury Tours</h3>
+            <p>Premium experiences with VIP treatment</p>
+            <ul>
+              <li>5-Star Accommodations</li>
+              <li>Private Transportation</li>
+              <li>Exclusive Access</li>
+              <li>Personal Concierge</li>
+            </ul>
+            <button class="btn primary">Book Luxury</button>
+          </div>
+
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Family Tours</h3>
+            <p>Perfect adventures for the whole family</p>
+            <ul>
+              <li>Kid-Friendly Activities</li>
+              <li>Family Accommodations</li>
+              <li>Educational Experiences</li>
+              <li>Safe Environments</li>
+            </ul>
+            <button class="btn outline">Family Fun</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Our Tours -->
+    <section class="section container">
+      <div class="section-header">
+        <h2>Why Choose Our Tours</h2>
+        <p class="section-description">Experience the difference with our professionally managed tours</p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <h3>Expert Guides</h3>
+          <p>Local guides with deep knowledge and passion for their destinations.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-route"></i>
+          </div>
+          <h3>Curated Itineraries</h3>
+          <p>Carefully planned routes to maximize your experience and minimize hassle.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3>24/7 Support</h3>
+          <p>Round-the-clock assistance throughout your entire journey.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Booking modal -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3 id="modalTitle">Book Tour</h3>
+      <form id="bookForm">
+        <label>
+          Name
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Travel Date
+          <input type="date" name="date" required />
+        </label>
+        <label>
+          Number of Travelers
+          <select name="travelers" required>
+            <option value="1">1 Person</option>
+            <option value="2">2 People</option>
+            <option value="3">3 People</option>
+            <option value="4">4+ People</option>
+          </select>
+        </label>
+        <button class="btn primary" type="submit">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <footer id="support" class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="logo" href="index.html"><span class="logo-mark">✈️</span><span>NextTrip</span></a>
+        <p>Your trusted partner for extraordinary travel experiences worldwide.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Destinations</h4>
+        <ul>
+          <li><a href="destinations.html">Europe</a></li>
+          <li><a href="destinations.html">Asia</a></li>
+          <li><a href="destinations.html">Americas</a></li>
+          <li><a href="destinations.html">Africa</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="tours.html">Flight Booking</a></li>
+          <li><a href="hotels.html">Hotel Reservations</a></li>
+          <li><a href="tours.html">Car Rentals</a></li>
+          <li><a href="support.html">Travel Insurance</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <address>
+          123 Travel Street<br/>
+          Adventure City, AC 12345<br/>
+          <a href="tel:+15551234567">+1 (555) 123-4567</a><br/>
+          <a href="mailto:hello@nexttrip.com">hello@nexttrip.com</a>
+        </address>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-content">
+        <small>&copy; 2025 NextTrip. All rights reserved.</small>
+        <div class="footer-team">
+          <p>Crafted with ❤️ by: Ritesh Pandey, Akhil Pandey, Mohd Kayes Ansari, Omji</p>
+        </div>
+        <div class="footer-links">
+          <a href="support.html">Privacy Policy</a>
+          <a href="support.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      color: white;
+      padding: 4rem 0 2rem;
+      margin-top: 0;
+    }
+    
+    .page-header-content {
+      text-align: center;
+    }
+    
+    .page-header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .page-header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+    
+    .breadcrumb {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 0.9rem;
+    }
+    
+    .breadcrumb li::after {
+      content: ' / ';
+      margin-left: 0.5rem;
+      opacity: 0.7;
+    }
+    
+    .breadcrumb li:last-child::after {
+      content: none;
+    }
+    
+    .breadcrumb a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      color: white;
+    }
+    
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .category-card {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(14,165,233,0.1);
+      position: relative;
+    }
+    
+    .category-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(14,165,233,0.15);
+    }
+    
+    .category-card.featured {
+      border: 2px solid var(--accent-1);
+    }
+    
+    .category-badge {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    
+    .category-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: white;
+      font-size: 1.8rem;
+    }
+    
+    .category-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+    
+    .category-card p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    
+    .category-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem;
+      text-align: left;
+    }
+    
+    .category-card li {
+      padding: 0.3rem 0;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .category-card li::before {
+      content: '✓';
+      color: var(--accent-1);
+      font-weight: bold;
+    }
+    
+    @media (max-width: 600px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      
+      .page-header {
+        padding: 3rem 0 1.5rem;
+      }
+      
+      .categories-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <script src="script.js"></script>
+  
+  <script>
+    // Additional functionality for tours page
+    document.addEventListener('DOMContentLoaded', () => {
+      // Enhanced tours data for the tours page
+      const allTours = [
+        {
+          title: 'Iceland Northern Lights & Glaciers',
+          days: 7,
+          price: '$2,499',
+          category: 'adventure',
+          img: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&h=600&q=80',
+          description: 'Witness the magical Aurora Borealis and explore ice caves',
+          includes: ['Glacier hiking', 'Northern Lights viewing', 'Ice cave exploration']
+        },
+        {
+          title: 'Japan Cultural Immersion',
+          days: 10,
+          price: '$3,299',
+          category: 'cultural',
+          img: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&h=600&q=80',
+          description: 'Traditional temples, modern cities, and authentic experiences',
+          includes: ['Temple visits', 'Tea ceremony', 'Local cuisine tours']
+        },
+        {
+          title: 'African Safari Adventure',
+          days: 8,
+          price: '$4,199',
+          category: 'adventure',
+          img: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&h=600&q=80',
+          description: 'Big Five wildlife encounters in pristine national parks',
+          includes: ['Game drives', 'Wildlife photography', 'Local village visits']
+        },
+        {
+          title: 'European Grand Tour',
+          days: 14,
+          price: '$2,899',
+          category: 'cultural',
+          img: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&h=600&q=80',
+          description: 'Historic cities, cultural landmarks, and culinary delights',
+          includes: ['Museum tours', 'Historical sites', 'Local cuisine']
+        },
+        {
+          title: 'Maldives Luxury Retreat',
+          days: 5,
+          price: '$5,999',
+          category: 'luxury',
+          img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&h=600&q=80',
+          description: 'Overwater villas, spa treatments, and pristine beaches',
+          includes: ['Overwater villa', 'Spa treatments', 'Private dining']
+        },
+        {
+          title: 'Family Disney Adventure',
+          days: 6,
+          price: '$1,899',
+          category: 'family',
+          img: 'https://images.unsplash.com/photo-1566737236500-c8ac43014a8e?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&h=600&q=80',
+          description: 'Magical experiences for the whole family',
+          includes: ['Theme park access', 'Character dining', 'Family activities']
+        }
+      ];
+
+      const toursList = document.getElementById('toursList');
+      const tourSearch = document.getElementById('tourSearch');
+      const filterChips = document.querySelectorAll('.filter-buttons .chip');
+
+      function renderTours(tours) {
+        toursList.innerHTML = '';
+        tours.forEach(tour => {
+          const tourElement = document.createElement('div');
+          tourElement.className = 'tour';
+          tourElement.innerHTML = `
+            <img src="${tour.img}" alt="${tour.title}" loading="lazy">
+            <div class="meta">
+              <h4>${tour.title}</h4>
+              <p class="muted">${tour.description}</p>
+              <div class="tour-includes">
+                ${tour.includes.map(item => `<span class="include-tag">${item}</span>`).join('')}
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                <div class="price">${tour.price} / person</div>
+                <div style="color: var(--muted); font-size: 0.9rem;">${tour.days} days</div>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <button class="btn outline small" onclick="viewTourDetails('${tour.title}')">
+                <i class="fas fa-info-circle"></i> Details
+              </button>
+              <button class="btn primary small book" data-title="${tour.title}">
+                <i class="fas fa-calendar-check"></i> Book Now
+              </button>
+            </div>
+          `;
+          toursList.appendChild(tourElement);
+        });
+      }
+
+      // Initial render
+      renderTours(allTours);
+
+      // Search functionality
+      tourSearch && tourSearch.addEventListener('input', (e) => {
+        const query = e.target.value.trim().toLowerCase();
+        const filtered = allTours.filter(tour => 
+          tour.title.toLowerCase().includes(query) ||
+          tour.description.toLowerCase().includes(query) ||
+          tour.category.toLowerCase().includes(query)
+        );
+        renderTours(filtered);
+      });
+
+      // Filter functionality
+      filterChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          filterChips.forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          
+          const category = chip.dataset.category;
+          const filtered = category === 'all' ? allTours : allTours.filter(t => t.category === category);
+          renderTours(filtered);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
